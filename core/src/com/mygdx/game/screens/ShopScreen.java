@@ -32,14 +32,22 @@ public class ShopScreen extends ScreenAdapter {
     TextView MLevelTextView;
     TextView KLevelTextView;
     TextView CLevelTextView;
+
+    TextView KInfoTextView1;
+    TextView KInfoTextView2;
+    TextView KInfoTextView3;
+    TextView KInfoTextView4;
+
     TextView MInfoTextView1;
     TextView MInfoTextView2;
     TextView MInfoTextView3;
+
     TextView CInfoTextView1;
     TextView CInfoTextView2;
     TextView CInfoTextView3;
     TextView CInfoTextView4;
     TextView CInfoTextView5;
+
     TextView maxTextView1;
     TextView maxTextView2;
     TextView maxTextView3;
@@ -68,6 +76,7 @@ public class ShopScreen extends ScreenAdapter {
     int MNeedToPay;
     int KNeedToPay;
     int CNeedToPay;
+    int KCoins;
 
     public ShopScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -91,6 +100,11 @@ public class ShopScreen extends ScreenAdapter {
         MInfoTextView1 = new TextView(myGdxGame.fontBlackAverage, 265, 935, "Time between passive");
         MInfoTextView2 = new TextView(myGdxGame.fontBlackAverage, 265, 905, "income decreases by");
         MInfoTextView3 = new TextView(myGdxGame.fontRed, 265, 875, "a second");
+
+        KInfoTextView1 = new TextView(myGdxGame.fontBlackAverage, 325, 625, "Get");
+        KInfoTextView2 = new TextView(myGdxGame.fontRed, 395, 625);
+        KInfoTextView3 = new TextView(myGdxGame.fontBlackAverage, 445, 625, "coins for");
+        KInfoTextView4 = new TextView(myGdxGame.fontBlackAverage, 325, 595, "every 10 clicks");
 
         CInfoTextView1 = new TextView(myGdxGame.fontBlackAverage, 230, 365, "Upgrade your computer");
         CInfoTextView2 = new TextView(myGdxGame.fontBlackAverage, 230, 340, "to");
@@ -212,21 +226,32 @@ public class ShopScreen extends ScreenAdapter {
                 keyboardImageView = new ImageView(80, 535, 250, 150, GameResources.KEYBOARD_SHOP_1);
                 KNeedToPay = 300;
                 KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 20;
+                KInfoTextView2.setText(""+ KCoins);
+
                 break;
             case 2:
                 keyboardImageView = new ImageView(80, 535, 275, 150, GameResources.KEYBOARD_SHOP_2);
                 KNeedToPay = 500;
                 KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 30;
+                KInfoTextView2.setText(""+ KCoins);
                 break;
             case 3:
                 keyboardImageView = new ImageView(80, 535, 275, 150, GameResources.KEYBOARD_SHOP_3);
                 KNeedToPay = 1000;
                 KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 40;
+                KInfoTextView2.setText(""+ KCoins);
+
                 break;
             case 4:
                 keyboardImageView = new ImageView(80, 535, 275, 150, GameResources.KEYBOARD_SHOP_4);
                 KNeedToPay = 1500;
                 KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 50;
+                KInfoTextView2.setText(""+ KCoins);
+
                 break;
             case 5:
                 keyboardImageView = new ImageView(60, 535, 305, 150, GameResources.KEYBOARD_SHOP_5);
@@ -282,10 +307,10 @@ public class ShopScreen extends ScreenAdapter {
         MInfoTextView1.draw(myGdxGame.batch);
         MInfoTextView2.draw(myGdxGame.batch);
         MInfoTextView3.draw(myGdxGame.batch);
-        if (MemoryManager.loadCoins() < MNeedToPay){
-            lockedImageView1.draw(myGdxGame.batch);
-        } else {
+        if (MemoryManager.loadCoins() >= MNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadMonitorLevel() || MemoryManager.loadMonitorLevel() == 5){
             upgradeButton1.draw(myGdxGame.batch);
+        } else {
+            lockedImageView1.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadMonitorLevel() == 5){
             maxTextView1.draw(myGdxGame.batch);
@@ -298,10 +323,16 @@ public class ShopScreen extends ScreenAdapter {
         keyboardTextView.draw(myGdxGame.batch);
         nowTextView2.draw(myGdxGame.batch);
         KLevelTextView.draw(myGdxGame.batch);
-        if (MemoryManager.loadCoins() < KNeedToPay){
-            lockedImageView2.draw(myGdxGame.batch);
-        } else {
+        if (MemoryManager.loadKeyboardLevel() != 5) {
+            KInfoTextView1.draw(myGdxGame.batch);
+            KInfoTextView2.draw(myGdxGame.batch);
+            KInfoTextView3.draw(myGdxGame.batch);
+            KInfoTextView4.draw(myGdxGame.batch);
+        }
+        if (MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel() || MemoryManager.loadKeyboardLevel() == 5){
             upgradeButton2.draw(myGdxGame.batch);
+        } else {
+            lockedImageView2.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadKeyboardLevel() == 5){
             maxTextView2.draw(myGdxGame.batch);
@@ -319,7 +350,11 @@ public class ShopScreen extends ScreenAdapter {
         CInfoTextView3.draw(myGdxGame.batch);
         CInfoTextView4.draw(myGdxGame.batch);
         CInfoTextView5.draw(myGdxGame.batch);
-        if (MemoryManager.loadCoins() < CNeedToPay){
+        if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadPlayerLevel() < 3){
+            lockedImageView3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() < 8){
+            lockedImageView3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() > 1 && MemoryManager.loadComputerLevel() < 4){
             lockedImageView3.draw(myGdxGame.batch);
         } else {
             upgradeButton3.draw(myGdxGame.batch);
@@ -335,18 +370,61 @@ public class ShopScreen extends ScreenAdapter {
     }
     @Override
     public void dispose(){
-        backgroundView.dispose();
-        boxImageView.dispose();
-        shopImageView.dispose();
-        coinsImageView.dispose();
+        myGdxGame.dispose();
         titleTextView.dispose();
-        returnButton.dispose();
-        monitorImageView.dispose();
-        keyboardImageView.dispose();
-        computerImageView.dispose();
-        upgradeButton1.dispose();
-        upgradeButton2.dispose();
+        coinsTextView.dispose();
+
+        monitorTextView.dispose();
+        keyboardTextView.dispose();
+         computerTextView.dispose();
+         nowTextView1.dispose();
+         nowTextView2.dispose();
+         nowTextView3.dispose();
+
+         MLevelTextView.dispose();
+         KLevelTextView.dispose();
+         CLevelTextView.dispose();
+
+         KInfoTextView1.dispose();
+         KInfoTextView2.dispose();
+         KInfoTextView3.dispose();
+         KInfoTextView4.dispose();
+
+         MInfoTextView1.dispose();
+         MInfoTextView2.dispose();
+         MInfoTextView3.dispose();
+
+         CInfoTextView1.dispose();
+         CInfoTextView2.dispose();
+         CInfoTextView3.dispose();
+         CInfoTextView4.dispose();
+         CInfoTextView5.dispose();
+
+         maxTextView1.dispose();
+         maxTextView2.dispose();
+         maxTextView3.dispose();
+         MCostTextView.dispose();
+         KCostTextView.dispose();
+         CCostTextView.dispose();
+
+         boxImageView.dispose();
+         shopImageView.dispose();
+         coinsImageView.dispose();
+         monitorImageView.dispose();
+         keyboardImageView.dispose();
+         computerImageView.dispose();
+         lockedImageView1.dispose();
+         lockedImageView2.dispose();
+         lockedImageView3.dispose();
+         coinImageView1.dispose();
+         coinImageView2.dispose();
+         coinImageView3.dispose();
+
+         returnButton.dispose();
+         upgradeButton1.dispose();
+         upgradeButton2.dispose();
         upgradeButton3.dispose();
+
 
 
 
