@@ -93,7 +93,7 @@ public class GameScreen extends ScreenAdapter {
 
         backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
 
-        computerView = new ComputerView(-40,420,500,800);
+        computerView = new ComputerView(-39,420,500,800);
         keyboardView = new KeyboardView(-65,150,850,550);
         monitorView = new MonitorView(220, 450, 500, 700 );
         upgradeButtonView = new ButtonView(310,-100,400,600);
