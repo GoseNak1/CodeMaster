@@ -68,6 +68,8 @@ public class GameScreen extends ScreenAdapter {
     TextView playerLevelView;
     TextView needScoreView;
 
+    private int coinsFor10Click;
+    private int counter = 0;
     private int priceOfPerClick;
     private int priceOfPerSecond;
 
@@ -141,6 +143,7 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void show(){
 
+
         gameSession.startGame();
         score = MemoryManager.loadScore();
         priceOfPerSecond = (MemoryManager.loadPerSecond()-8)*100;
@@ -155,10 +158,22 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void render(float delta) {
+        if(MemoryManager.loadMSeconds()==0) MemoryManager.saveMSeconds(5000);
+        switch (MemoryManager.loadKeyboardLevel()){
+            case 1: coinsFor10Click = 0; break;
+            case 2: coinsFor10Click = 20; break;
+            case 3: coinsFor10Click = 30; break;
+            case 4: coinsFor10Click = 40; break;
+            case 5: coinsFor10Click = 50; break;
+        }
+
         if(MemoryManager.loadGoldBanner()){
             GameResources.BANNER_PATH = "textures/banners/Gold banner.png";
         }else {
             GameResources.BANNER_PATH = "textures/banners/banner.png";
+        }
+        if(MemoryManager.loadPlayerLevel() == 0){
+            MemoryManager.savePlayerLevel(1);
         }
         if (MemoryManager.loadPerSecond() == 0){
             MemoryManager.savePerSecond(10);
@@ -187,7 +202,6 @@ public class GameScreen extends ScreenAdapter {
             needScore = (MemoryManager.loadPlayerLevel()+1)*200;
             MemoryManager.saveScore(0);
         }
-        randomizerSound();
         handleInput();
 
         banner.setImage(GameResources.BANNER_PATH);
@@ -200,7 +214,6 @@ public class GameScreen extends ScreenAdapter {
         playerLevelView.setText(""+ MemoryManager.loadPlayerLevel());
         scoreTextView.setText("" + MemoryManager.loadScore());
 
-        myGdxGame.stepWorld();
         draw();
 
     }
@@ -208,17 +221,33 @@ public class GameScreen extends ScreenAdapter {
         if (Gdx.input.justTouched()){
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
             if(keyboardView.isKeyboardHit(myGdxGame.touch.x,myGdxGame.touch.y)){
-                if(myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.clickSound.play();
+                Random r = new Random();
+                int randomClick = r.nextInt(3);
+                if (randomClick == 1) {
+                    if(myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.clickSound1.play();
+                } else if (randomClick == 2) {
+                    if(myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.clickSound2.play();
+                } else{
+                    if(myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.clickSound3.play();
+                }
+
+                if (counter == 10){
+                    coins = MemoryManager.loadCoins() + coinsFor10Click;
+                    counter = 0;
+                }
                 if(MemoryManager.loadCoins() <= 9990){
                     coins = MemoryManager.loadCoins() + perClick;
-                    MemoryManager.saveCoins(coins);
+
                 }
                 score = MemoryManager.loadScore() + 1;
-                MemoryManager.saveScore(score);
+
                 clickForMonitor += 1;
                 if(clickForMonitor >= 3){
                     clickForMonitor = 0;
                 }
+                counter += 1;
+                MemoryManager.saveCoins(coins);
+                MemoryManager.saveScore(score);
             }
             if(upgradeButtonView.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perClick <= 9 && MemoryManager.loadCoins() >= priceOfPerClick){
                 perClick = MemoryManager.loadPerClick() + 1;
@@ -264,17 +293,7 @@ public class GameScreen extends ScreenAdapter {
 
 
     }
-    private void randomizerSound(){
-        Random r = new Random();
-        int randomClick = r.nextInt(3);
-        if (randomClick == 1) {
-            myGdxGame.audioManager.clickSound = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_1));
-        } else if (randomClick == 2) {
-            myGdxGame.audioManager.clickSound = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_2));
-        } else{
-            myGdxGame.audioManager.clickSound = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_3));
-        }
-    }
+
     private void upgradeEffect(){
         if (MLevel != MemoryManager.loadMonitorLevel()){
             MUpgradeImage.move();

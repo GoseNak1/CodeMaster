@@ -38,7 +38,7 @@ public class SettingsScreen extends ScreenAdapter {
 
         backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
         titleTextView = new TextView(myGdxGame.fontBlackBig, 160, 900, "Settings");
-        boxImageView = new ImageView(-160, -200, GameResources.SETTINGS_BACKGROUND);
+        boxImageView = new ImageView(-180, -180,1100,1600, GameResources.SETTINGS_BACKGROUND);
         clearSettingView1 = new TextView(myGdxGame.fontWhite, 270, 400, "reset");
         clearSettingView2 = new TextView(myGdxGame.fontWhite, 210, 350, "progress");
 

@@ -13,7 +13,9 @@ public class AudioManager {
     public boolean isMusicOn;
 
     public Music backgroundMusic;
-    public Sound clickSound;
+    public Sound clickSound1 = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_1));
+    public Sound clickSound2= Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_2));
+    public Sound clickSound3 = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_3));
     public Sound uiSound;
 
 

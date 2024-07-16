@@ -9,7 +9,6 @@ public class BackgroundView extends View {
 
     int texture1Y;
     int texture2Y;
-    int speed = 2;
 
     public BackgroundView(String pathToTexture){
         super(0,0);
