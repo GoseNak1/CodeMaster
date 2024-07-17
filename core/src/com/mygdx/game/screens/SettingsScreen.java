@@ -26,7 +26,6 @@ public class SettingsScreen extends ScreenAdapter {
     TextView soundSettingView;
     TextView clearSettingView1;
     TextView clearSettingView2;
-    TextView languageView;
     TextView goldbanner;
     private boolean isOld;
 
@@ -54,11 +53,6 @@ public class SettingsScreen extends ScreenAdapter {
                 "sound: " + translateStateToText(MemoryManager.loadIsSoundOn())
         );
 
-        languageView = new TextView(
-                myGdxGame.fontBlack,
-                120, 599,
-                "language: eng"
-        );
 
         returnButton = new ButtonView(
                 20, 1100, 170, 170,
@@ -93,7 +87,7 @@ public class SettingsScreen extends ScreenAdapter {
         resetButton.draw(myGdxGame.batch);
         musicSettingView.draw(myGdxGame.batch);
         soundSettingView.draw(myGdxGame.batch);
-        languageView.draw(myGdxGame.batch);
+
         clearSettingView1.draw(myGdxGame.batch);
         clearSettingView2.draw(myGdxGame.batch);
         if(MemoryManager.loadPlayerLevel() >= 10 || isOld){
@@ -168,9 +162,10 @@ public class SettingsScreen extends ScreenAdapter {
         resetButton.dispose();
         musicSettingView.dispose();
         soundSettingView.dispose();
-        languageView.dispose();
+
         clearSettingView1.dispose();
         clearSettingView2.dispose();
     }
 }
+
 

@@ -16,7 +16,7 @@
         tools:ignore="UnusedAttribute">
         <activity
             android:name="com.mygdx.game.AndroidLauncher"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"
             android:exported="true"
             tools:ignore="DiscouragedApi">

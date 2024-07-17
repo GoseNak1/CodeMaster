@@ -20,6 +20,9 @@ import com.mygdx.game.view.TextView;
 import java.util.Random;
 
 public class GameScreen extends ScreenAdapter {
+    MonitorView monitorView;
+
+
     GameSession gameSession;
     ButtonView exitButton;
     ImageView banner;
@@ -30,7 +33,6 @@ public class GameScreen extends ScreenAdapter {
     ImageView CUpgradeImage;
 
     ComputerView computerView;
-    MonitorView monitorView;
     public KeyboardView keyboardView;
     BackgroundView backgroundView;
     MyGdxGame myGdxGame;
@@ -95,9 +97,9 @@ public class GameScreen extends ScreenAdapter {
 
         backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
 
+        monitorView = new MonitorView(220, 450, 500, 700);
         computerView = new ComputerView(-39,420,500,800);
         keyboardView = new KeyboardView(-65,150,850,550);
-        monitorView = new MonitorView(220, 450, 500, 700 );
         upgradeButtonView = new ButtonView(310,-100,400,600);
         upgradeButtonView2 = new ButtonView(-10,-100,400,600);
 
@@ -310,8 +312,8 @@ public class GameScreen extends ScreenAdapter {
         myGdxGame.batch.begin();
         backgroundView.draw(myGdxGame.batch);
 
+        monitorView.draw(myGdxGame.batch,clickForMonitor);
         computerView.draw(myGdxGame.batch);
-        monitorView.draw(myGdxGame.batch, clickForMonitor);
         keyboardView.draw(myGdxGame.batch);
 
         upgradeButtonView2.draw(myGdxGame.batch);
@@ -359,9 +361,9 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void dispose(){
         backgroundView.dispose();
+        monitorView.dispose();
         computerView.dispose();
         keyboardView.dispose();
-        monitorView.dispose();
 
         upgradeButtonView2.dispose();
         upgradeButtonView.dispose();
