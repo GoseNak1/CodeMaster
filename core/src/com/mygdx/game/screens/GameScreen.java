@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class GameScreen extends ScreenAdapter {
     MonitorView monitorView;
-
+    private int MSeconds;
 
     GameSession gameSession;
     ButtonView exitButton;
@@ -41,6 +41,7 @@ public class GameScreen extends ScreenAdapter {
 
     ButtonView shopButton;
     ButtonView settingsButton;
+    public boolean goldBanner;
     public int playerLevel = 1;
     private short clickForMonitor = 0;
     private int score = 0;
@@ -86,7 +87,7 @@ public class GameScreen extends ScreenAdapter {
 
 
     private int needScore;
-
+    private short a = 0;
     private int MLevel = 1;
     private int KLevel = 1;
     private int CLevel = 1;
@@ -137,6 +138,7 @@ public class GameScreen extends ScreenAdapter {
         priceBanner = new ImageView(390,0,250,150,GameResources.PRICE_PATH);
         priceBanner2 = new ImageView(70,0,250,150,GameResources.PRICE_PATH);
 
+
         priceOfPerSecondText = new TextView(myGdxGame.fontWhiteSmall,165,58);
         priceOfPerClickText = new TextView(myGdxGame.fontWhiteSmall,500,58);
 
@@ -144,24 +146,47 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
-
-
         gameSession.startGame();
+        KLevel = MemoryManager.loadKeyboardLevel();
+        MLevel =MemoryManager.loadMonitorLevel();
+        CLevel = MemoryManager.loadComputerLevel();
+
+        playerLevel = MemoryManager.loadPlayerLevel();
+        goldBanner = MemoryManager.loadGoldBanner();
         score = MemoryManager.loadScore();
-        priceOfPerSecond = (MemoryManager.loadPerSecond()-8)*100;
-        priceOfPerClick = (MemoryManager.loadPerClick()+1)*100;
-        needScore = (MemoryManager.loadPlayerLevel()+1)*200;
+
+        needScore = (playerLevel+1)*200;
         coins = MemoryManager.loadCoins();
         perClick = MemoryManager.loadPerClick();
         perSecond = MemoryManager.loadPerSecond();
-
-
+        priceOfPerSecond = (perSecond-8)*100;
+        priceOfPerClick = (perClick+1)*100;
+        MSeconds = MemoryManager.loadMSeconds();
 
     }
     @Override
     public void render(float delta) {
-        if(MemoryManager.loadMSeconds()==0) MemoryManager.saveMSeconds(5000);
-        switch (MemoryManager.loadKeyboardLevel()){
+        if (clickForMonitor == 0){
+            KLevel = MemoryManager.loadKeyboardLevel();
+            MLevel =MemoryManager.loadMonitorLevel();
+            CLevel = MemoryManager.loadComputerLevel();
+
+            playerLevel = MemoryManager.loadPlayerLevel();
+            goldBanner = MemoryManager.loadGoldBanner();
+            score = MemoryManager.loadScore();
+
+            needScore = (playerLevel+1)*200;
+            coins = MemoryManager.loadCoins();
+            perClick = MemoryManager.loadPerClick();
+            perSecond = MemoryManager.loadPerSecond();
+            priceOfPerSecond = (perSecond-8)*100;
+            priceOfPerClick = (perClick+1)*100;
+            MSeconds = MemoryManager.loadMSeconds();
+        }
+
+
+        if(MSeconds==0) MemoryManager.saveMSeconds(5000);
+        switch (KLevel){
             case 1: coinsFor10Click = 0; break;
             case 2: coinsFor10Click = 20; break;
             case 3: coinsFor10Click = 30; break;
@@ -169,25 +194,21 @@ public class GameScreen extends ScreenAdapter {
             case 5: coinsFor10Click = 50; break;
         }
 
-        if(MemoryManager.loadGoldBanner()){
+        if(goldBanner){
             GameResources.BANNER_PATH = "textures/banners/Gold banner.png";
         }else {
             GameResources.BANNER_PATH = "textures/banners/banner.png";
         }
-        if(MemoryManager.loadPlayerLevel() == 0){
+        if(playerLevel == 0){
             MemoryManager.savePlayerLevel(1);
         }
-        if (MemoryManager.loadPerSecond() == 0){
+        if (perSecond == 0){
             MemoryManager.savePerSecond(10);
-            perSecond = MemoryManager.loadPerSecond();
-            priceOfPerSecond = (MemoryManager.loadPerSecond()-8)*100;
         }
-        if (MemoryManager.loadPerClick() == 0){
+        if (perClick == 0){
             MemoryManager.savePerClick(1);
-            perClick = MemoryManager.loadPerClick();
-            priceOfPerClick = (MemoryManager.loadPerClick()+1)*100;
         }
-        switch (MemoryManager.loadMonitorLevel()){
+        switch (MLevel){
             case 1: MemoryManager.saveMSeconds(5000); break;
             case 2: MemoryManager.saveMSeconds(4000); break;
             case 3: MemoryManager.saveMSeconds(3000); break;
@@ -195,13 +216,12 @@ public class GameScreen extends ScreenAdapter {
             case 5: MemoryManager.saveMSeconds(1000); break;
         }
         if(gameSession.shouldGiveMoney()){
-            coins = MemoryManager.loadCoins() + perSecond;
+            coins += perSecond;
             MemoryManager.saveCoins(coins);
         }
         if (score >= needScore){
-            playerLevel = MemoryManager.loadPlayerLevel() + 1;
+            playerLevel += 1;
             MemoryManager.savePlayerLevel(playerLevel);
-            needScore = (MemoryManager.loadPlayerLevel()+1)*200;
             MemoryManager.saveScore(0);
         }
         handleInput();
@@ -209,12 +229,12 @@ public class GameScreen extends ScreenAdapter {
         banner.setImage(GameResources.BANNER_PATH);
         priceOfPerSecondText.setText(""+ priceOfPerSecond);
         priceOfPerClickText.setText(""+ priceOfPerClick);
-        perSecondView.setText(""+ MemoryManager.loadPerSecond());
-        perClickText.setText(""+ MemoryManager.loadPerClick());
-        coinsView.setText(""+ MemoryManager.loadCoins());
+        perSecondView.setText(""+ perSecond);
+        perClickText.setText(""+ perClick);
+        coinsView.setText(""+ coins);
         needScoreView.setText(""+ needScore);
-        playerLevelView.setText(""+ MemoryManager.loadPlayerLevel());
-        scoreTextView.setText("" + MemoryManager.loadScore());
+        playerLevelView.setText(""+ playerLevel);
+        scoreTextView.setText("" + score);
 
         draw();
 
@@ -234,14 +254,14 @@ public class GameScreen extends ScreenAdapter {
                 }
 
                 if (counter == 10){
-                    coins = MemoryManager.loadCoins() + coinsFor10Click;
+                    coins += coinsFor10Click;
                     counter = 0;
                 }
                 if(MemoryManager.loadCoins() <= 9990){
-                    coins = MemoryManager.loadCoins() + perClick;
+                    coins += perClick;
 
                 }
-                score = MemoryManager.loadScore() + 1;
+                score += 1;
 
                 clickForMonitor += 1;
                 if(clickForMonitor >= 3){
@@ -251,20 +271,19 @@ public class GameScreen extends ScreenAdapter {
                 MemoryManager.saveCoins(coins);
                 MemoryManager.saveScore(score);
             }
-            if(upgradeButtonView.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perClick <= 9 && MemoryManager.loadCoins() >= priceOfPerClick){
-                perClick = MemoryManager.loadPerClick() + 1;
+            if(upgradeButtonView.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perClick <= 9 && coins >= priceOfPerClick){
+                perClick += 1;
                 MemoryManager.savePerClick(perClick);
-                coins = MemoryManager.loadCoins() - priceOfPerClick;
+                coins -= priceOfPerClick;
                 MemoryManager.saveCoins(coins);
-                priceOfPerClick = (MemoryManager.loadPerClick()+1)*100;
+
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
             }
-            if(upgradeButtonView2.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perSecond <= 19 && MemoryManager.loadCoins() >= priceOfPerSecond ){
-                perSecond = MemoryManager.loadPerSecond() + 1;
+            if(upgradeButtonView2.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perSecond <= 19 && coins >= priceOfPerSecond ){
+                perSecond += 1;
                 MemoryManager.savePerSecond(perSecond);
-                coins = MemoryManager.loadCoins() - priceOfPerSecond;
+                coins -= priceOfPerSecond;
                 MemoryManager.saveCoins(coins);
-                priceOfPerSecond = (MemoryManager.loadPerSecond()-8)*100;
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
             }
 
@@ -294,14 +313,6 @@ public class GameScreen extends ScreenAdapter {
 
 
 
-    }
-
-    private void upgradeEffect(){
-        if (MLevel != MemoryManager.loadMonitorLevel()){
-            MUpgradeImage.move();
-            MUpgradeImage.draw(myGdxGame.batch);
-            MLevel += 1;
-        }
     }
     private void draw(){
 
