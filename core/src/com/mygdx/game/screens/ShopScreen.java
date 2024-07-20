@@ -219,6 +219,12 @@ public class ShopScreen extends ScreenAdapter {
             case 5:
                 monitorImageView = new ImageView(60, 835, 225, 150, GameResources.MONITOR_SHOP_5);
                 break;
+            default:
+                monitorImageView = new ImageView(40, 835, 250, 150, GameResources.MONITOR_SHOP_1);
+                MNeedToPay = 300;
+                MCostTextView.setText(""+ MNeedToPay);
+                break;
+
         }
 
         switch (MemoryManager.loadKeyboardLevel()){
@@ -256,6 +262,14 @@ public class ShopScreen extends ScreenAdapter {
             case 5:
                 keyboardImageView = new ImageView(60, 535, 305, 150, GameResources.KEYBOARD_SHOP_5);
                 break;
+            default:
+                keyboardImageView = new ImageView(80, 535, 250, 150, GameResources.KEYBOARD_SHOP_1);
+                KNeedToPay = 300;
+                KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 20;
+                KInfoTextView2.setText(""+ KCoins);
+
+                break;
         }
 
         switch (MemoryManager.loadComputerLevel()){
@@ -281,6 +295,11 @@ public class ShopScreen extends ScreenAdapter {
                 break;
             case 5:
                 computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_5);
+                break;
+            default:
+                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_1);
+                CNeedToPay = 600;
+                CCostTextView.setText(""+ CNeedToPay);
                 break;
         }
         myGdxGame.camera.update();
