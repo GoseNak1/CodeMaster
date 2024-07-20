@@ -3,6 +3,7 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.GameResources;
@@ -94,12 +95,17 @@ public class GameScreen extends ScreenAdapter {
 
     public GameScreen(MyGdxGame myGdxGame){
         this.myGdxGame = myGdxGame;
+
+
+
+
+
         gameSession = new GameSession();
 
         backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
 
         monitorView = new MonitorView(220, 450, 500, 700);
-        computerView = new ComputerView(-39,420,500,800);
+//        computerView = new ComputerView(-39,420,500,800);
         keyboardView = new KeyboardView(-65,150,850,550);
         upgradeButtonView = new ButtonView(310,-100,400,600);
         upgradeButtonView2 = new ButtonView(-10,-100,400,600);
@@ -166,6 +172,56 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void render(float delta) {
+        switch (KLevel){
+            case 1:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
+                break;
+            case 2:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard2");
+                break;
+            case 3:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard3");
+                break;
+            case 4:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard4");
+                break;
+            case 5:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard5");
+                break;
+            default:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
+                break;
+        }
+        switch (CLevel){
+            case 1:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
+                break;
+            case 2:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc2");
+                break;
+            case 3:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc3");
+                break;
+            case 4:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc4");
+                break;
+            case 5:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc5");
+                break;
+            default:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
+                break;
+        }
+
+
+        myGdxGame.keyBoard.setPosition(-65,150);
+        myGdxGame.keyBoard.setSize(850,550);
+
+        myGdxGame.computer.setPosition(-39,420);
+        myGdxGame.computer.setSize(500,800);
+
+
+
         if (clickForMonitor == 0){
             KLevel = MemoryManager.loadKeyboardLevel();
             MLevel =MemoryManager.loadMonitorLevel();
@@ -321,11 +377,15 @@ public class GameScreen extends ScreenAdapter {
         ScreenUtils.clear(Color.CLEAR);
 
         myGdxGame.batch.begin();
+
         backgroundView.draw(myGdxGame.batch);
 
         monitorView.draw(myGdxGame.batch,clickForMonitor);
-        computerView.draw(myGdxGame.batch);
-        keyboardView.draw(myGdxGame.batch);
+//        computerView.draw(myGdxGame.batch);
+
+        myGdxGame.computer.draw(myGdxGame.batch);
+        myGdxGame.keyBoard.draw(myGdxGame.batch);
+//        keyboardView.draw(myGdxGame.batch);
 
         upgradeButtonView2.draw(myGdxGame.batch);
         upgradeButtonView.draw(myGdxGame.batch);

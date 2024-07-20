@@ -13,18 +13,30 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.managers.AudioManager;
+import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.screens.GameScreen;
 import com.mygdx.game.screens.SettingsScreen;
 import com.mygdx.game.screens.ShopScreen;
 
+import javax.swing.Spring;
+
 public class MyGdxGame extends Game {
+	public TextureAtlas textureAtlas;
+
+	public Sprite keyBoard;
+	public Sprite computer;
+
+
+
 	public GameScreen gameScreen;
 	public SettingsScreen settingsScreen;
 	public ShopScreen shopScreen;
@@ -66,6 +78,8 @@ public class MyGdxGame extends Game {
 		fontBlackBtw = FontBuilder.generate(55,colorS,GameResources.FONT_PATH);
 		fontRed = FontBuilder.generate(35, Color.RED,GameResources.FONT_PATH);
 
+		textureAtlas  = new TextureAtlas("assets.txt");
+
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, SCREEN_WIDTH,SCREEN_HEIGHT);
@@ -97,5 +111,6 @@ public class MyGdxGame extends Game {
 		settingsScreen.dispose();
 		shopScreen.dispose();
 		batch.dispose();
+		textureAtlas.dispose();
 	}
 }

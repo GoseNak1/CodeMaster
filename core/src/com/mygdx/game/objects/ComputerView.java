@@ -19,26 +19,7 @@ public class ComputerView extends View {
     }
     @Override
     public void draw(SpriteBatch batch){
-        switch (MemoryManager.loadComputerLevel()){
-            case 1:
-                texture = new Texture(GameResources.COMPUTER_STAGE_1);
-                break;
-            case 2:
-                texture = new Texture(GameResources.COMPUTER_STAGE_2);
-                break;
-            case 3:
-                texture = new Texture(GameResources.COMPUTER_STAGE_3);
-                break;
-            case 4:
-                texture = new Texture(GameResources.COMPUTER_STAGE_4);
-                break;
-            case 5:
-                texture = new Texture(GameResources.COMPUTER_STAGE_5);
-                break;
-            default:
-                texture = new Texture(GameResources.COMPUTER_STAGE_1);
-                break;
-        }
+
 
         batch.draw(texture,x,y,width,height);
     }
