@@ -381,7 +381,7 @@ public class ShopScreen extends ScreenAdapter {
             KInfoTextView4.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel() || MemoryManager.loadKeyboardLevel() == 5){
-            myGdxGame.upgradeButton2.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButton2.draw(myGdxGame.batch);
 //            upgradeButton2.draw(myGdxGame.batch);
         } else {
             myGdxGame.shopUpgradeButtonLocked2.draw(myGdxGame.batch);

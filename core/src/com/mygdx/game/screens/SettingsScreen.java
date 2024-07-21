@@ -111,8 +111,8 @@ public class SettingsScreen extends ScreenAdapter {
                     MemoryManager.saveIsOld(true);
                 }
                 MemoryManager.saveScore(0);
-                MemoryManager.savePlayerLevel(1);
-                MemoryManager.saveCoins(0);
+                MemoryManager.savePlayerLevel(3);
+                MemoryManager.saveCoins(8000);
                 MemoryManager.savePerClick(1);
                 MemoryManager.saveMonitorLevel(1);
                 MemoryManager.saveKeyboardLevel(1);
