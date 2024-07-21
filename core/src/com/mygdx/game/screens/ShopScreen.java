@@ -11,14 +11,12 @@ import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.objects.ComputerView;
 import com.mygdx.game.objects.KeyboardView;
 import com.mygdx.game.objects.MonitorView;
-import com.mygdx.game.view.BackgroundView;
 import com.mygdx.game.view.ButtonView;
 import com.mygdx.game.view.ImageView;
 import com.mygdx.game.view.TextView;
 
 public class ShopScreen extends ScreenAdapter {
     MyGdxGame myGdxGame;
-    BackgroundView backgroundView;
     TextView titleTextView;
     TextView coinsTextView;
 
@@ -60,15 +58,6 @@ public class ShopScreen extends ScreenAdapter {
     TextView KCostTextView;
     TextView CCostTextView;
 
-    ImageView boxImageView;
-    ImageView shopImageView;
-    ImageView coinsImageView;
-    ImageView monitorImageView;
-
-    ImageView lockedImageView1;
-    ImageView lockedImageView2;
-    ImageView lockedImageView3;
-
     ButtonView returnButton;
     ButtonView upgradeButton1;
     ButtonView upgradeButton2;
@@ -81,8 +70,6 @@ public class ShopScreen extends ScreenAdapter {
 
     public ShopScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-
-        backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
 
         titleTextView = new TextView(myGdxGame.fontBlackBig, 210, 1150, "Shop");
         coinsTextView = new TextView(myGdxGame.fontWhiteSmall, 580, 1165);
@@ -126,25 +113,47 @@ public class ShopScreen extends ScreenAdapter {
         KCostTextView = new TextView(myGdxGame.fontWhiteSmall, 470, 510);
         CCostTextView = new TextView(myGdxGame.fontWhiteSmall, 470, 260);
 
-        boxImageView = new ImageView(-120, -20, 950, 1300, GameResources.SHOP_BACKGROUND);
-        shopImageView = new ImageView(120, 1055, 400, 250, GameResources.SHOP_IMAGE);
-        coinsImageView = new ImageView(475, 1100, 240, 150, GameResources.COINS_PATH);
+        returnButton = new ButtonView(20, 1100, 170, 170);
 
-        lockedImageView1 = new ImageView(380, 760, 280, 150, GameResources.BUTTON_SHOP_LOCKED);
-        lockedImageView2 = new ImageView(380, 450, 280, 150, GameResources.BUTTON_SHOP_LOCKED);
-        lockedImageView3 = new ImageView(380, 200, 280, 150, GameResources.BUTTON_SHOP_LOCKED);
-
-        returnButton = new ButtonView(20, 1100, 170, 170, GameResources.BUTTON_BACK);
-
-        upgradeButton1 = new ButtonView(380, 760, 280, 150, GameResources.BUTTON_SHOP_UPGRADE);
-        upgradeButton2 = new ButtonView(380, 450, 280, 150, GameResources.BUTTON_SHOP_UPGRADE);
-        upgradeButton3 = new ButtonView(380, 200, 280, 150, GameResources.BUTTON_SHOP_UPGRADE);
+        upgradeButton1 = new ButtonView(380, 760, 280, 150);
+        upgradeButton2 = new ButtonView(380, 450, 280, 150);
+        upgradeButton3 = new ButtonView(380, 200, 280, 150);
 
 
 
     }
     @Override
     public void show(){
+        myGdxGame.shopUpgradeButton1.setPosition(380, 760);
+        myGdxGame.shopUpgradeButton1.setSize(280, 150);
+
+        myGdxGame.shopUpgradeButton2.setPosition(380, 450);
+        myGdxGame.shopUpgradeButton2.setSize(280, 150);
+
+        myGdxGame.shopUpgradeButton3.setPosition(380, 200);
+        myGdxGame.shopUpgradeButton3.setSize(280, 150);
+
+        myGdxGame.shopUpgradeButtonLocked1.setPosition(380, 760);
+        myGdxGame.shopUpgradeButtonLocked1.setSize(280, 150);
+
+        myGdxGame.shopUpgradeButtonLocked2.setPosition(380, 450);
+        myGdxGame.shopUpgradeButtonLocked2.setSize(280, 150);
+
+        myGdxGame.shopUpgradeButtonLocked3.setPosition(380, 200);
+        myGdxGame.shopUpgradeButtonLocked3.setSize(280, 150);
+
+        myGdxGame.shopImage.setPosition(120, 1055);
+        myGdxGame.shopImage.setSize(400, 250);
+
+        myGdxGame.shopBackground.setPosition(-120, -20);
+        myGdxGame.shopBackground.setSize(950, 1300);
+
+        myGdxGame.backButton.setPosition(20, 1100);
+        myGdxGame.backButton.setSize(170, 170);
+
+        myGdxGame.coinsBanner.setPosition(475, 1100);
+        myGdxGame.coinsBanner.setSize(240, 150);
+
         myGdxGame.coin1.setPosition(570, 800);
         myGdxGame.coin2.setPosition(570, 490);
         myGdxGame.coin3.setPosition(570, 240);
@@ -224,6 +233,39 @@ public class ShopScreen extends ScreenAdapter {
                 CCostTextView.setText(""+ CNeedToPay);
                 break;
         }
+        switch (MemoryManager.loadMonitorLevel()){
+            case 1:
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor1");
+                MNeedToPay = 300;
+                MCostTextView.setText(""+ MNeedToPay);
+                break;
+            case 2:
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor2");
+                MNeedToPay = 500;
+                MCostTextView.setText(""+ MNeedToPay);
+                break;
+            case 3:
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor3");
+                MNeedToPay = 1000;
+                MCostTextView.setText(""+ MNeedToPay);
+                break;
+            case 4:
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor4");
+                MNeedToPay = 1500;
+                MCostTextView.setText(""+ MNeedToPay);
+                break;
+            case 5:
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor5");
+                break;
+            default:
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor1");
+                MNeedToPay = 300;
+                MCostTextView.setText(""+ MNeedToPay);
+                break;
+
+        }
+        myGdxGame.monitorShop.setPosition(40,835);
+        myGdxGame.monitorShop.setSize(225, 150);
 
         myGdxGame.computerShop.setPosition(80, 250);
         myGdxGame.computerShop.setSize(150, 150);
@@ -283,38 +325,6 @@ public class ShopScreen extends ScreenAdapter {
         }
     }
     private void draw(){
-        switch (MemoryManager.loadMonitorLevel()){
-            case 1:
-                monitorImageView = new ImageView(40, 835, 250, 150, GameResources.MONITOR_SHOP_1);
-                MNeedToPay = 300;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 2:
-                monitorImageView = new ImageView(40, 835, 275, 150, GameResources.MONITOR_SHOP_2);
-                MNeedToPay = 500;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 3:
-                monitorImageView = new ImageView(30, 835, 275, 150, GameResources.MONITOR_SHOP_3);
-                MNeedToPay = 1000;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 4:
-                monitorImageView = new ImageView(40, 835, 275, 150, GameResources.MONITOR_SHOP_4);
-                MNeedToPay = 1500;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 5:
-                monitorImageView = new ImageView(60, 835, 225, 150, GameResources.MONITOR_SHOP_5);
-                break;
-            default:
-                monitorImageView = new ImageView(40, 835, 250, 150, GameResources.MONITOR_SHOP_1);
-                MNeedToPay = 300;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-
-        }
-
 
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
@@ -323,17 +333,18 @@ public class ShopScreen extends ScreenAdapter {
         myGdxGame.batch.begin();
 
         myGdxGame.backGround.draw(myGdxGame.batch);
-        boxImageView.draw(myGdxGame.batch);
+        myGdxGame.shopBackground.draw(myGdxGame.batch);
 
-        shopImageView.draw(myGdxGame.batch);
+        myGdxGame.shopImage.draw(myGdxGame.batch);
         titleTextView.draw(myGdxGame.batch);
 
-        coinsImageView.draw(myGdxGame.batch);
+        myGdxGame.coinsBanner.draw(myGdxGame.batch);
         coinsTextView.draw(myGdxGame.batch);
 
-        returnButton.draw(myGdxGame.batch);
+        myGdxGame.backButton.draw(myGdxGame.batch);
 
-        monitorImageView.draw(myGdxGame.batch);
+        myGdxGame.monitorShop.draw(myGdxGame.batch);
+//        monitorImageView.draw(myGdxGame.batch);
 
         monitorTextView.draw(myGdxGame.batch);
 
@@ -346,9 +357,11 @@ public class ShopScreen extends ScreenAdapter {
         MInfoTextView2.draw(myGdxGame.batch);
         MInfoTextView3.draw(myGdxGame.batch);
         if (MemoryManager.loadCoins() >= MNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadMonitorLevel() || MemoryManager.loadMonitorLevel() == 5){
-            upgradeButton1.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButton1.draw(myGdxGame.batch);
+//            upgradeButton1.draw(myGdxGame.batch);
         } else {
-            lockedImageView1.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButtonLocked1.draw(myGdxGame.batch);
+//            lockedImageView1.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadMonitorLevel() == 5){
             maxTextView1.draw(myGdxGame.batch);
@@ -368,9 +381,11 @@ public class ShopScreen extends ScreenAdapter {
             KInfoTextView4.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel() || MemoryManager.loadKeyboardLevel() == 5){
-            upgradeButton2.draw(myGdxGame.batch);
+            myGdxGame.upgradeButton2.draw(myGdxGame.batch);
+//            upgradeButton2.draw(myGdxGame.batch);
         } else {
-            lockedImageView2.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButtonLocked2.draw(myGdxGame.batch);
+//            lockedImageView2.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadKeyboardLevel() == 5){
             maxTextView2.draw(myGdxGame.batch);
@@ -401,13 +416,13 @@ public class ShopScreen extends ScreenAdapter {
             CInfoTextView10.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadPlayerLevel() < 3){
-            lockedImageView3.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
         } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() < 8){
-            lockedImageView3.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
         } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() > 1 && MemoryManager.loadComputerLevel() < 4){
-            lockedImageView3.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
         } else {
-            upgradeButton3.draw(myGdxGame.batch);
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadComputerLevel() == 5){
             maxTextView3.draw(myGdxGame.batch);
@@ -462,14 +477,6 @@ public class ShopScreen extends ScreenAdapter {
          MCostTextView.dispose();
          KCostTextView.dispose();
          CCostTextView.dispose();
-
-         boxImageView.dispose();
-         shopImageView.dispose();
-         coinsImageView.dispose();
-         monitorImageView.dispose();
-         lockedImageView1.dispose();
-         lockedImageView2.dispose();
-         lockedImageView3.dispose();
 
          returnButton.dispose();
          upgradeButton1.dispose();

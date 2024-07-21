@@ -34,7 +34,9 @@ public class MyGdxGame extends Game {
 
 	public Sprite keyBoard;
 	public Sprite computer;
+	public Sprite monitor;
 
+	public Sprite monitorShop;
 	public Sprite keyBoardShop;
 	public Sprite computerShop;
 
@@ -48,14 +50,34 @@ public class MyGdxGame extends Game {
 	public Sprite upgradeButton1;
 	public Sprite upgradeButton2;
 
+	public Sprite price1;
+	public Sprite price2;
 
+	public Sprite exit;
+	public Sprite settings;
+	public Sprite shop;
 
+	public Sprite coinsBanner;
+	public Sprite banner;
+
+	public Sprite backButton;
+	public Sprite settingsBackground;
+	public Sprite resetProgress;
+
+	public Sprite shopImage;
+	public Sprite shopBackground;
+
+	public Sprite shopUpgradeButton1;
+	public Sprite shopUpgradeButton2;
+	public Sprite shopUpgradeButton3;
+
+	public Sprite shopUpgradeButtonLocked1;
+	public Sprite shopUpgradeButtonLocked2;
+	public Sprite shopUpgradeButtonLocked3;
 
 	public GameScreen gameScreen;
 	public SettingsScreen settingsScreen;
 	public ShopScreen shopScreen;
-
-	float accumulator = 0;
 
 	public Vector3 touch;
 
@@ -101,6 +123,32 @@ public class MyGdxGame extends Game {
 
 		coin4.setPosition(110,48);
 		coin4.setSize(55,50);
+
+		price1 = textureAtlas.createSprite("price");
+		price2 = textureAtlas.createSprite("price");
+
+		exit = textureAtlas.createSprite("exitgame");
+		settings = textureAtlas.createSprite("settings_button");
+		shop = textureAtlas.createSprite("shop_button");
+
+		coinsBanner = textureAtlas.createSprite("banners/coins_image");
+		banner = textureAtlas.createSprite("banners/banner");
+
+		backButton = textureAtlas.createSprite("backbutton");
+		settingsBackground = textureAtlas.createSprite("Setting_background");
+		resetProgress = textureAtlas.createSprite("red_button");
+
+		shopImage = textureAtlas.createSprite("shop_image");
+		shopBackground = textureAtlas.createSprite("shop_background");
+
+		shopUpgradeButton1 = textureAtlas.createSprite("upgrade_shop_button");
+		shopUpgradeButton2 = textureAtlas.createSprite("upgrade_shop_button");
+		shopUpgradeButton3 = textureAtlas.createSprite("upgrade_shop_button");
+
+		shopUpgradeButtonLocked1 = textureAtlas.createSprite("shop_button_locked");
+		shopUpgradeButtonLocked2 = textureAtlas.createSprite("shop_button_locked");
+		shopUpgradeButtonLocked3 = textureAtlas.createSprite("shop_button_locked");
+
 
 
 		batch = new SpriteBatch();

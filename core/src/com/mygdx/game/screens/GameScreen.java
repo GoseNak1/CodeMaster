@@ -3,17 +3,14 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.GameResources;
 import com.mygdx.game.GameSession;
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.MyGdxGame;
-import com.mygdx.game.objects.ComputerView;
 import com.mygdx.game.objects.KeyboardView;
 import com.mygdx.game.objects.MonitorView;
-import com.mygdx.game.view.BackgroundView;
 import com.mygdx.game.view.ButtonView;
 import com.mygdx.game.view.ImageView;
 import com.mygdx.game.view.TextView;
@@ -26,8 +23,6 @@ public class GameScreen extends ScreenAdapter {
 
     GameSession gameSession;
     ButtonView exitButton;
-    ImageView banner;
-    ImageView coinsBanner;
 
     public KeyboardView keyboardView;
 
@@ -65,8 +60,6 @@ public class GameScreen extends ScreenAdapter {
     private int priceOfPerClick;
     private int priceOfPerSecond;
 
-    ImageView priceBanner;
-    ImageView priceBanner2;
     TextView priceOfPerClickText;
     TextView priceOfPerSecondText;
 
@@ -94,12 +87,9 @@ public class GameScreen extends ScreenAdapter {
         playerLevelView = new TextView(myGdxGame.fontWhite,360,1180);
         coinsView = new TextView(myGdxGame.fontWhiteSmall,595,1035);
 
-        banner = new ImageView(100,990,800,400,GameResources.BANNER_PATH);
-        coinsBanner = new ImageView(480,980,250,130,GameResources.COINS_PATH);
-
-        exitButton = new ButtonView(-10,1080,180,200,GameResources.EXIT_BUTTON_PATH);
-        settingsButton = new ButtonView(10, 700, 110,110, GameResources.BUTTON_SETTINGS);
-        shopButton = new ButtonView(600, 700, 110,110, GameResources.BUTTON_SHOP);
+        exitButton = new ButtonView(-10,1080,180,200);
+        settingsButton = new ButtonView(10, 700, 110,110);
+        shopButton = new ButtonView(600, 700, 110,110);
 
 
         perSecondView = new TextView(myGdxGame.fontWhite,160,180);
@@ -112,8 +102,6 @@ public class GameScreen extends ScreenAdapter {
         perTextView = new TextView(myGdxGame.fontWhiteVerySmall,455,145,"Per");
         clickTextView = new TextView(myGdxGame.fontWhiteVerySmall,455,120,"Click");
 
-        priceBanner = new ImageView(390,0,250,150,GameResources.PRICE_PATH);
-        priceBanner2 = new ImageView(70,0,250,150,GameResources.PRICE_PATH);
 
 
         priceOfPerSecondText = new TextView(myGdxGame.fontWhiteSmall,165,58);
@@ -123,6 +111,27 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
+        myGdxGame.banner.setPosition(100,990);
+        myGdxGame.banner.setSize(800,400);
+
+        myGdxGame.coinsBanner.setPosition(480,980);
+        myGdxGame.coinsBanner.setSize(250,130);
+
+        myGdxGame.shop.setPosition(600, 700);
+        myGdxGame.shop.setSize(110,110);
+
+        myGdxGame.settings.setPosition(10, 700);
+        myGdxGame.settings.setSize(110,110);
+
+        myGdxGame.exit.setPosition(-10,1080);
+        myGdxGame.exit.setSize(180,200);
+
+        myGdxGame.price1.setPosition(390,0);
+        myGdxGame.price1.setSize(250,150);
+
+        myGdxGame.price2.setPosition(70,0);
+        myGdxGame.price2.setSize(250,150);
+
         myGdxGame.coin1.setPosition(440,173);
         myGdxGame.coin1.setSize(55,50);
 
@@ -133,6 +142,82 @@ public class GameScreen extends ScreenAdapter {
         myGdxGame.coin3.setSize(55,50);
 
         gameSession.startGame();
+
+
+    }
+    @Override
+    public void render(float delta) {
+        switch (KLevel){
+            case 1:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
+                myGdxGame.keyBoard.setPosition(-65,150);
+                myGdxGame.keyBoard.setSize(850,550);
+
+                break;
+            case 2:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard2");
+                myGdxGame.keyBoard.setPosition(-65,150);
+                myGdxGame.keyBoard.setSize(850,550);
+
+                break;
+            case 3:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard3");
+                myGdxGame.keyBoard.setPosition(-65,150);
+                myGdxGame.keyBoard.setSize(850,550);
+
+                break;
+            case 4:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard4");
+                myGdxGame.keyBoard.setPosition(-65,150);
+                myGdxGame.keyBoard.setSize(850,550);
+
+                break;
+            case 5:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard5");
+                myGdxGame.keyBoard.setPosition(-65,150);
+                myGdxGame.keyBoard.setSize(850,550);
+
+                break;
+            default:
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
+                myGdxGame.keyBoard.setPosition(-65,150);
+                myGdxGame.keyBoard.setSize(850,550);
+
+                break;
+        }
+        switch (CLevel){
+            case 1:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
+                myGdxGame.computer.setPosition(-39,420);
+                myGdxGame.computer.setSize(500,800);
+                break;
+            case 2:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc2");
+                myGdxGame.computer.setPosition(-39,420);
+                myGdxGame.computer.setSize(500,800);
+                break;
+            case 3:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc3");
+                myGdxGame.computer.setPosition(-39,420);
+                myGdxGame.computer.setSize(500,800);
+                break;
+            case 4:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc4");
+                myGdxGame.computer.setPosition(-39,420);
+                myGdxGame.computer.setSize(500,800);
+                break;
+            case 5:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc5");
+                myGdxGame.computer.setPosition(-39,420);
+                myGdxGame.computer.setSize(500,800);
+                break;
+            default:
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
+                myGdxGame.computer.setPosition(-39,420);
+                myGdxGame.computer.setSize(500,800);
+                break;
+        }
+
         KLevel = MemoryManager.loadKeyboardLevel();
         MLevel =MemoryManager.loadMonitorLevel();
         CLevel = MemoryManager.loadComputerLevel();
@@ -149,75 +234,6 @@ public class GameScreen extends ScreenAdapter {
         priceOfPerClick = (perClick+1)*100;
         MSeconds = MemoryManager.loadMSeconds();
 
-    }
-    @Override
-    public void render(float delta) {
-        switch (KLevel){
-            case 1:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
-                break;
-            case 2:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard2");
-                break;
-            case 3:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard3");
-                break;
-            case 4:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard4");
-                break;
-            case 5:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard5");
-                break;
-            default:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
-                break;
-        }
-        switch (CLevel){
-            case 1:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
-                break;
-            case 2:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc2");
-                break;
-            case 3:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc3");
-                break;
-            case 4:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc4");
-                break;
-            case 5:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc5");
-                break;
-            default:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
-                break;
-        }
-
-
-        myGdxGame.keyBoard.setPosition(-65,150);
-        myGdxGame.keyBoard.setSize(850,550);
-
-        myGdxGame.computer.setPosition(-39,420);
-        myGdxGame.computer.setSize(500,800);
-
-
-        if (clickForMonitor == 0){
-            KLevel = MemoryManager.loadKeyboardLevel();
-            MLevel =MemoryManager.loadMonitorLevel();
-            CLevel = MemoryManager.loadComputerLevel();
-
-            playerLevel = MemoryManager.loadPlayerLevel();
-            goldBanner = MemoryManager.loadGoldBanner();
-            score = MemoryManager.loadScore();
-
-            needScore = (playerLevel+1)*200;
-            coins = MemoryManager.loadCoins();
-            perClick = MemoryManager.loadPerClick();
-            perSecond = MemoryManager.loadPerSecond();
-            priceOfPerSecond = (perSecond-8)*100;
-            priceOfPerClick = (perClick+1)*100;
-            MSeconds = MemoryManager.loadMSeconds();
-        }
 
 
         if(MSeconds==0) MemoryManager.saveMSeconds(5000);
@@ -230,9 +246,15 @@ public class GameScreen extends ScreenAdapter {
         }
 
         if(goldBanner){
-            GameResources.BANNER_PATH = "textures/banners/Gold banner.png";
+            myGdxGame.banner = myGdxGame.textureAtlas.createSprite("banners/Gold banner");
+
+            myGdxGame.banner.setPosition(100,990);
+            myGdxGame.banner.setSize(800,400);
         }else {
-            GameResources.BANNER_PATH = "textures/banners/banner.png";
+            myGdxGame.banner = myGdxGame.textureAtlas.createSprite("banners/banner");
+
+            myGdxGame.banner.setPosition(100,990);
+            myGdxGame.banner.setSize(800,400);
         }
         if(playerLevel == 0){
             MemoryManager.savePlayerLevel(1);
@@ -260,8 +282,9 @@ public class GameScreen extends ScreenAdapter {
             MemoryManager.saveScore(0);
         }
         handleInput();
+        MemoryManager.saveCoins(coins);
+        MemoryManager.saveScore(score);
 
-        banner.setImage(GameResources.BANNER_PATH);
         priceOfPerSecondText.setText(""+ priceOfPerSecond);
         priceOfPerClickText.setText(""+ priceOfPerClick);
         perSecondView.setText(""+ perSecond);
@@ -292,9 +315,8 @@ public class GameScreen extends ScreenAdapter {
                     coins += coinsFor10Click;
                     counter = 0;
                 }
-                if(MemoryManager.loadCoins() <= 9990){
+                if(coins <= 9990){
                     coins += perClick;
-
                 }
                 score += 1;
 
@@ -303,8 +325,7 @@ public class GameScreen extends ScreenAdapter {
                     clickForMonitor = 0;
                 }
                 counter += 1;
-                MemoryManager.saveCoins(coins);
-                MemoryManager.saveScore(score);
+
             }
             if(upgradeButtonView.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perClick <= 9 && coins >= priceOfPerClick){
                 perClick += 1;
@@ -371,8 +392,6 @@ public class GameScreen extends ScreenAdapter {
 
         myGdxGame.upgradeButton2.draw(myGdxGame.batch);
         myGdxGame.upgradeButton1.draw(myGdxGame.batch);
-//        upgradeButtonView2.draw(myGdxGame.batch);
-//        upgradeButtonView.draw(myGdxGame.batch);
         perSecondView.draw(myGdxGame.batch);
         passiveTextView.draw(myGdxGame.batch);
         incomeTextView.draw(myGdxGame.batch);
@@ -383,27 +402,27 @@ public class GameScreen extends ScreenAdapter {
         myGdxGame.coin2.draw(myGdxGame.batch);
 
         if (perSecond != 20){
-            priceBanner2.draw(myGdxGame.batch);
+            myGdxGame.price2.draw(myGdxGame.batch);
             priceOfPerSecondText.draw(myGdxGame.batch);
             myGdxGame.coin4.draw(myGdxGame.batch);
         }
         if (perClick != 10){
-            priceBanner.draw(myGdxGame.batch);
+            myGdxGame.price1.draw(myGdxGame.batch);
             myGdxGame.coin3.draw(myGdxGame.batch);
             priceOfPerClickText.draw(myGdxGame.batch);
         }
 
 
-        banner.draw(myGdxGame.batch);
-        coinsBanner.draw(myGdxGame.batch);
+        myGdxGame.banner.draw(myGdxGame.batch);
+        myGdxGame.coinsBanner.draw(myGdxGame.batch);
         coinsView.draw(myGdxGame.batch);
         scoreTextView.draw(myGdxGame.batch);
         playerLevelView.draw(myGdxGame.batch);
         needScoreView.draw(myGdxGame.batch);
 
-        exitButton.draw(myGdxGame.batch);
-        settingsButton.draw(myGdxGame.batch);
-        shopButton.draw(myGdxGame.batch);
+        myGdxGame.exit.draw(myGdxGame.batch);
+        myGdxGame.settings.draw(myGdxGame.batch);
+        myGdxGame.shop.draw(myGdxGame.batch);
 
         playerText.draw(myGdxGame.batch);
         levelText.draw(myGdxGame.batch);
@@ -418,8 +437,6 @@ public class GameScreen extends ScreenAdapter {
         monitorView.dispose();
         keyboardView.dispose();
 
-        upgradeButtonView2.dispose();
-        upgradeButtonView.dispose();
         perSecondView.dispose();
         passiveTextView.dispose();
         incomeTextView.dispose();
@@ -427,12 +444,8 @@ public class GameScreen extends ScreenAdapter {
         perTextView.dispose();
         clickTextView.dispose();
 
-        priceBanner2.dispose();
-        priceBanner.dispose();
         priceOfPerSecondText.dispose();
         priceOfPerClickText.dispose();
-        banner.dispose();
-        coinsBanner.dispose();
         coinsView.dispose();
         scoreTextView.dispose();
         playerLevelView.dispose();

@@ -9,17 +9,13 @@ import com.mygdx.game.GameResources;
 
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.MyGdxGame;
-import com.mygdx.game.view.BackgroundView;
 import com.mygdx.game.view.ButtonView;
 import com.mygdx.game.view.ImageView;
 import com.mygdx.game.view.TextView;
 
 public class SettingsScreen extends ScreenAdapter {
     MyGdxGame myGdxGame;
-
-    BackgroundView backgroundView;
     TextView titleTextView;
-    ImageView boxImageView;
     ButtonView returnButton;
     ButtonView resetButton;
     TextView musicSettingView;
@@ -31,13 +27,7 @@ public class SettingsScreen extends ScreenAdapter {
 
     public SettingsScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-
-
-
-
-        backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
         titleTextView = new TextView(myGdxGame.fontBlackBig, 160, 900, "Settings");
-        boxImageView = new ImageView(-180, -180,1100,1600, GameResources.SETTINGS_BACKGROUND);
         clearSettingView1 = new TextView(myGdxGame.fontWhite, 270, 400, "reset");
         clearSettingView2 = new TextView(myGdxGame.fontWhite, 210, 350, "progress");
 
@@ -54,18 +44,25 @@ public class SettingsScreen extends ScreenAdapter {
         );
 
 
-        returnButton = new ButtonView(
-                20, 1100, 170, 170,
-                GameResources.BUTTON_BACK);
+        returnButton = new ButtonView(20, 1100, 170, 170);
 
-        resetButton = new ButtonView(
-                120, 240, 467, 280,
-                GameResources.BUTTON_RED);
+        resetButton = new ButtonView(120, 240, 467, 280);
 
         goldbanner = new TextView(
                 myGdxGame.fontBlackBtw,
                 120, 555,
                 "gold banner: " + translateStateToText(MemoryManager.loadGoldBanner()));
+    }
+    @Override
+    public void show(){
+        myGdxGame.resetProgress.setPosition(120, 240);
+        myGdxGame.resetProgress.setSize(467, 280);
+
+        myGdxGame.backButton.setPosition(20, 1100);
+        myGdxGame.backButton.setSize(170, 170);
+
+        myGdxGame.settingsBackground.setPosition(-180, -180);
+        myGdxGame.settingsBackground.setSize(1100,1600);
     }
 
     @Override
@@ -80,11 +77,11 @@ public class SettingsScreen extends ScreenAdapter {
 
         myGdxGame.batch.begin();
 
-        backgroundView.draw(myGdxGame.batch);
-        boxImageView.draw(myGdxGame.batch);
+        myGdxGame.backGround.draw(myGdxGame.batch);
+        myGdxGame.settingsBackground.draw(myGdxGame.batch);
         titleTextView.draw(myGdxGame.batch);
-        returnButton.draw(myGdxGame.batch);
-        resetButton.draw(myGdxGame.batch);
+        myGdxGame.backButton.draw(myGdxGame.batch);
+        myGdxGame.resetProgress.draw(myGdxGame.batch);
         musicSettingView.draw(myGdxGame.batch);
         soundSettingView.draw(myGdxGame.batch);
 
@@ -155,8 +152,6 @@ public class SettingsScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        backgroundView.dispose();
-        boxImageView.dispose();
         titleTextView.dispose();
         returnButton.dispose();
         resetButton.dispose();
