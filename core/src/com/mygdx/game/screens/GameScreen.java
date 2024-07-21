@@ -281,8 +281,7 @@ public class GameScreen extends ScreenAdapter {
             MemoryManager.saveScore(0);
         }
         handleInput();
-        MemoryManager.saveCoins(coins);
-        MemoryManager.saveScore(score);
+
 
         priceOfPerSecondText.setText(""+ priceOfPerSecond);
         priceOfPerClickText.setText(""+ priceOfPerClick);
@@ -324,6 +323,8 @@ public class GameScreen extends ScreenAdapter {
                     clickForMonitor = 0;
                 }
                 counter += 1;
+                MemoryManager.saveCoins(coins);
+                MemoryManager.saveScore(score);
 
             }
             if(upgradeButtonView.isUpgradeHit(myGdxGame.touch.x,myGdxGame.touch.y) && perClick <= 9 && coins >= priceOfPerClick){
