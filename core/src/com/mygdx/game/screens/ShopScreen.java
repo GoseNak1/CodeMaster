@@ -47,6 +47,11 @@ public class ShopScreen extends ScreenAdapter {
     TextView CInfoTextView3;
     TextView CInfoTextView4;
     TextView CInfoTextView5;
+    TextView CInfoTextView6;
+    TextView CInfoTextView7;
+    TextView CInfoTextView8;
+    TextView CInfoTextView9;
+    TextView CInfoTextView10;
 
     TextView maxTextView1;
     TextView maxTextView2;
@@ -59,14 +64,10 @@ public class ShopScreen extends ScreenAdapter {
     ImageView shopImageView;
     ImageView coinsImageView;
     ImageView monitorImageView;
-    ImageView keyboardImageView;
-    ImageView computerImageView;
+
     ImageView lockedImageView1;
     ImageView lockedImageView2;
     ImageView lockedImageView3;
-    ImageView coinImageView1;
-    ImageView coinImageView2;
-    ImageView coinImageView3;
 
     ButtonView returnButton;
     ButtonView upgradeButton1;
@@ -111,6 +112,11 @@ public class ShopScreen extends ScreenAdapter {
         CInfoTextView3 = new TextView(myGdxGame.fontRed, 285, 340, "unlock");
         CInfoTextView4 = new TextView(myGdxGame.fontBlackAverage, 420, 340, "monitor and");
         CInfoTextView5 = new TextView(myGdxGame.fontBlackAverage, 230, 315, "keyboard upgrades");
+        CInfoTextView6 = new TextView(myGdxGame.fontBlackSmall, 225, 280, "(Upgrade is");
+        CInfoTextView7 = new TextView(myGdxGame.fontBlackSmall, 225, 260, "available");
+        CInfoTextView8 = new TextView(myGdxGame.fontBlackSmall, 225, 240, "on Player");
+        CInfoTextView9 = new TextView(myGdxGame.fontBlackSmall, 225, 220, "Level 3)");
+        CInfoTextView10 = new TextView(myGdxGame.fontBlackSmall, 225, 220, "Level 8)");
 
         maxTextView1 = new TextView(myGdxGame.fontWhiteVerySmall, 470, 825, "Max level");
         maxTextView2 = new TextView(myGdxGame.fontWhiteVerySmall, 470, 515, "Max level");
@@ -123,10 +129,6 @@ public class ShopScreen extends ScreenAdapter {
         boxImageView = new ImageView(-120, -20, 950, 1300, GameResources.SHOP_BACKGROUND);
         shopImageView = new ImageView(120, 1055, 400, 250, GameResources.SHOP_IMAGE);
         coinsImageView = new ImageView(475, 1100, 240, 150, GameResources.COINS_PATH);
-
-        coinImageView1 = new ImageView(570, 800, 60, 60, GameResources.COIN_PATH);
-        coinImageView2 = new ImageView(570, 490, 60, 60, GameResources.COIN_PATH);
-        coinImageView3 = new ImageView(570, 240, 60, 60, GameResources.COIN_PATH);
 
         lockedImageView1 = new ImageView(380, 760, 280, 150, GameResources.BUTTON_SHOP_LOCKED);
         lockedImageView2 = new ImageView(380, 450, 280, 150, GameResources.BUTTON_SHOP_LOCKED);
@@ -141,9 +143,95 @@ public class ShopScreen extends ScreenAdapter {
 
 
     }
+    @Override
+    public void show(){
+        myGdxGame.coin1.setPosition(570, 800);
+        myGdxGame.coin2.setPosition(570, 490);
+        myGdxGame.coin3.setPosition(570, 240);
+        myGdxGame.coin1.setSize(60,60);
+        myGdxGame.coin2.setSize(60,60);
+        myGdxGame.coin3.setSize(60,60);
+    }
 
     @Override
     public void render(float delta) {
+        switch (MemoryManager.loadKeyboardLevel()){
+            case 1:
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard1");
+                KNeedToPay = 300;
+                KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 20;
+                KInfoTextView2.setText(""+ KCoins);
+                break;
+            case 2:
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard2");
+                KNeedToPay = 500;
+                KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 30;
+                KInfoTextView2.setText(""+ KCoins);
+                break;
+            case 3:
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard3");
+                KNeedToPay = 1000;
+                KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 40;
+                KInfoTextView2.setText(""+ KCoins);
+                break;
+            case 4:
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard4");
+                KNeedToPay = 1500;
+                KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 50;
+                KInfoTextView2.setText(""+ KCoins);
+                break;
+            case 5:
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard5");
+                break;
+            default:
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard1");
+                KNeedToPay = 300;
+                KCostTextView.setText(""+ KNeedToPay);
+                KCoins = 20;
+                KInfoTextView2.setText(""+ KCoins);
+        }
+        switch (MemoryManager.loadComputerLevel()){
+            case 1:
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                CNeedToPay = 600;
+                CCostTextView.setText(""+ CNeedToPay);
+                break;
+            case 2:
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc2");
+                CNeedToPay = 1000;
+                CCostTextView.setText(""+ CNeedToPay);
+                break;
+            case 3:
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc3");
+                CNeedToPay = 2000;
+                CCostTextView.setText(""+ CNeedToPay);
+                break;
+            case 4:
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc4");
+                CNeedToPay = 3000;
+                CCostTextView.setText(""+ CNeedToPay);
+                break;
+            case 5:
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc5");
+                break;
+            default:
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                CNeedToPay = 600;
+                CCostTextView.setText(""+ CNeedToPay);
+                break;
+        }
+
+        myGdxGame.computerShop.setPosition(80, 250);
+        myGdxGame.computerShop.setSize(150, 150);
+
+        myGdxGame.keyBoardShop.setPosition(60, 535);
+        myGdxGame.keyBoardShop.setSize(275, 150);
+
+
         coinsTextView.setText(""+ MemoryManager.loadCoins());
         MLevelTextView.setText(""+ MemoryManager.loadMonitorLevel());
         KLevelTextView.setText(""+ MemoryManager.loadKeyboardLevel());
@@ -227,88 +315,14 @@ public class ShopScreen extends ScreenAdapter {
 
         }
 
-        switch (MemoryManager.loadKeyboardLevel()){
-            case 1:
-                keyboardImageView = new ImageView(80, 535, 250, 150, GameResources.KEYBOARD_SHOP_1);
-                KNeedToPay = 300;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 20;
-                KInfoTextView2.setText(""+ KCoins);
 
-                break;
-            case 2:
-                keyboardImageView = new ImageView(80, 535, 275, 150, GameResources.KEYBOARD_SHOP_2);
-                KNeedToPay = 500;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 30;
-                KInfoTextView2.setText(""+ KCoins);
-                break;
-            case 3:
-                keyboardImageView = new ImageView(80, 535, 275, 150, GameResources.KEYBOARD_SHOP_3);
-                KNeedToPay = 1000;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 40;
-                KInfoTextView2.setText(""+ KCoins);
-
-                break;
-            case 4:
-                keyboardImageView = new ImageView(80, 535, 275, 150, GameResources.KEYBOARD_SHOP_4);
-                KNeedToPay = 1500;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 50;
-                KInfoTextView2.setText(""+ KCoins);
-
-                break;
-            case 5:
-                keyboardImageView = new ImageView(60, 535, 305, 150, GameResources.KEYBOARD_SHOP_5);
-                break;
-            default:
-                keyboardImageView = new ImageView(80, 535, 250, 150, GameResources.KEYBOARD_SHOP_1);
-                KNeedToPay = 300;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 20;
-                KInfoTextView2.setText(""+ KCoins);
-
-                break;
-        }
-
-        switch (MemoryManager.loadComputerLevel()){
-            case 1:
-                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_1);
-                CNeedToPay = 600;
-                CCostTextView.setText(""+ CNeedToPay);
-                break;
-            case 2:
-                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_2);
-                CNeedToPay = 1000;
-                CCostTextView.setText(""+ CNeedToPay);
-                break;
-            case 3:
-                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_3);
-                CNeedToPay = 2000;
-                CCostTextView.setText(""+ CNeedToPay);
-                break;
-            case 4:
-                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_4);
-                CNeedToPay = 3000;
-                CCostTextView.setText(""+ CNeedToPay);
-                break;
-            case 5:
-                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_5);
-                break;
-            default:
-                computerImageView = new ImageView(80, 250, 150, 150, GameResources.COMPUTER_SHOP_1);
-                CNeedToPay = 600;
-                CCostTextView.setText(""+ CNeedToPay);
-                break;
-        }
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         ScreenUtils.clear(Color.CLEAR);
 
         myGdxGame.batch.begin();
 
-        backgroundView.draw(myGdxGame.batch);
+        myGdxGame.backGround.draw(myGdxGame.batch);
         boxImageView.draw(myGdxGame.batch);
 
         shopImageView.draw(myGdxGame.batch);
@@ -320,7 +334,12 @@ public class ShopScreen extends ScreenAdapter {
         returnButton.draw(myGdxGame.batch);
 
         monitorImageView.draw(myGdxGame.batch);
+
         monitorTextView.draw(myGdxGame.batch);
+
+        myGdxGame.computerShop.draw(myGdxGame.batch);
+        myGdxGame.keyBoardShop.draw(myGdxGame.batch);
+
         nowTextView1.draw(myGdxGame.batch);
         MLevelTextView.draw(myGdxGame.batch);
         MInfoTextView1.draw(myGdxGame.batch);
@@ -334,11 +353,11 @@ public class ShopScreen extends ScreenAdapter {
         if (MemoryManager.loadMonitorLevel() == 5){
             maxTextView1.draw(myGdxGame.batch);
         } else {
-            coinImageView1.draw(myGdxGame.batch);
+            myGdxGame.coin1.draw(myGdxGame.batch);
+
             MCostTextView.draw(myGdxGame.batch);
         }
 
-        keyboardImageView.draw(myGdxGame.batch);
         keyboardTextView.draw(myGdxGame.batch);
         nowTextView2.draw(myGdxGame.batch);
         KLevelTextView.draw(myGdxGame.batch);
@@ -356,11 +375,11 @@ public class ShopScreen extends ScreenAdapter {
         if (MemoryManager.loadKeyboardLevel() == 5){
             maxTextView2.draw(myGdxGame.batch);
         } else {
-            coinImageView2.draw(myGdxGame.batch);
+            myGdxGame.coin2.draw(myGdxGame.batch);
+
             KCostTextView.draw(myGdxGame.batch);
         }
 
-        computerImageView.draw(myGdxGame.batch);
         computerTextView.draw(myGdxGame.batch);
         nowTextView3.draw(myGdxGame.batch);
         CLevelTextView.draw(myGdxGame.batch);
@@ -369,6 +388,18 @@ public class ShopScreen extends ScreenAdapter {
         CInfoTextView3.draw(myGdxGame.batch);
         CInfoTextView4.draw(myGdxGame.batch);
         CInfoTextView5.draw(myGdxGame.batch);
+        if (MemoryManager.loadComputerLevel() == 1) {
+            CInfoTextView6.draw(myGdxGame.batch);
+            CInfoTextView7.draw(myGdxGame.batch);
+            CInfoTextView8.draw(myGdxGame.batch);
+            CInfoTextView9.draw(myGdxGame.batch);
+        }
+        if (MemoryManager.loadComputerLevel() == 4) {
+            CInfoTextView6.draw(myGdxGame.batch);
+            CInfoTextView7.draw(myGdxGame.batch);
+            CInfoTextView8.draw(myGdxGame.batch);
+            CInfoTextView10.draw(myGdxGame.batch);
+        }
         if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadPlayerLevel() < 3){
             lockedImageView3.draw(myGdxGame.batch);
         } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() < 8){
@@ -381,7 +412,8 @@ public class ShopScreen extends ScreenAdapter {
         if (MemoryManager.loadComputerLevel() == 5){
             maxTextView3.draw(myGdxGame.batch);
         } else {
-            coinImageView3.draw(myGdxGame.batch);
+            myGdxGame.coin3.draw(myGdxGame.batch);
+
             CCostTextView.draw(myGdxGame.batch);
         }
 
@@ -418,6 +450,11 @@ public class ShopScreen extends ScreenAdapter {
          CInfoTextView3.dispose();
          CInfoTextView4.dispose();
          CInfoTextView5.dispose();
+        CInfoTextView6.dispose();
+        CInfoTextView7.dispose();
+        CInfoTextView8.dispose();
+        CInfoTextView9.dispose();
+        CInfoTextView10.dispose();
 
          maxTextView1.dispose();
          maxTextView2.dispose();
@@ -430,14 +467,9 @@ public class ShopScreen extends ScreenAdapter {
          shopImageView.dispose();
          coinsImageView.dispose();
          monitorImageView.dispose();
-         keyboardImageView.dispose();
-         computerImageView.dispose();
          lockedImageView1.dispose();
          lockedImageView2.dispose();
          lockedImageView3.dispose();
-         coinImageView1.dispose();
-         coinImageView2.dispose();
-         coinImageView3.dispose();
 
          returnButton.dispose();
          upgradeButton1.dispose();

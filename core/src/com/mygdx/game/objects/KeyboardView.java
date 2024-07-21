@@ -12,7 +12,6 @@ import com.mygdx.game.view.View;
 
 public class KeyboardView extends View {
     MyGdxGame myGdxGame;
-    Texture texture;
     public static int level = 1;
 
     public KeyboardView(float x, float y, float width, float height){
@@ -26,11 +25,6 @@ public class KeyboardView extends View {
     public static void levelUp(){
         level = MemoryManager.loadKeyboardLevel() + 1;
         MemoryManager.saveKeyboardLevel(level);
-    }
-
-    @Override
-    public void dispose(){
-        texture.dispose();
     }
 }
 

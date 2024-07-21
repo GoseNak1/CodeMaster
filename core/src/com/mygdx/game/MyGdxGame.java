@@ -35,6 +35,20 @@ public class MyGdxGame extends Game {
 	public Sprite keyBoard;
 	public Sprite computer;
 
+	public Sprite keyBoardShop;
+	public Sprite computerShop;
+
+	public Sprite backGround;
+
+	public Sprite coin1;
+	public Sprite coin2;
+	public Sprite coin3;
+	public Sprite coin4;
+
+	public Sprite upgradeButton1;
+	public Sprite upgradeButton2;
+
+
 
 
 	public GameScreen gameScreen;
@@ -79,6 +93,15 @@ public class MyGdxGame extends Game {
 		fontRed = FontBuilder.generate(35, Color.RED,GameResources.FONT_PATH);
 
 		textureAtlas  = new TextureAtlas("assets.txt");
+		backGround = textureAtlas.createSprite("Background");
+		coin1 = textureAtlas.createSprite("Coin");
+		coin2 = textureAtlas.createSprite("Coin");
+		coin3 = textureAtlas.createSprite("Coin");
+		coin4 = textureAtlas.createSprite("Coin");
+
+		coin4.setPosition(110,48);
+		coin4.setSize(55,50);
+
 
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera();

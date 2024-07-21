@@ -1,23 +1,9 @@
 package com.mygdx.game;
 
 public class GameResources {
-    public static final String COIN_PATH = "textures/Coin.png";
     public static final String FONT_PATH = "fonts/PIXY.otf";
     public static final String BACKGROUND_IMG_PATH = "textures/Background.png";
     public static final String PRICE_PATH = "textures/Price.png";
-
-
-    public static final String KEYBOARD_STAGE_1 = "textures/keyboard/Main screen/keyboard1.png";
-    public static final String KEYBOARD_STAGE_2 = "textures/keyboard/Main screen/keyboard2.png";
-    public static final String KEYBOARD_STAGE_3 = "textures/keyboard/Main screen/keyboard3.png";
-    public static final String KEYBOARD_STAGE_4 = "textures/keyboard/Main screen/keyboard4.png";
-    public static final String KEYBOARD_STAGE_5 = "textures/keyboard/Main screen/keyboard5.png";
-
-    public static final String KEYBOARD_SHOP_1 = "textures/keyboard/Shop/keyboard1.png";
-    public static final String KEYBOARD_SHOP_2 = "textures/keyboard/Shop/keyboard2.png";
-    public static final String KEYBOARD_SHOP_3 = "textures/keyboard/Shop/keyboard3.png";
-    public static final String KEYBOARD_SHOP_4 = "textures/keyboard/Shop/keyboard4.png";
-    public static final String KEYBOARD_SHOP_5 = "textures/keyboard/Shop/keyboard5.png";
     //стадия_1анимация_1
     public static final String MONITOR_STAGE_1_1 = "textures/monitor/monitor11.png";
     public static final String MONITOR_STAGE_1_2 = "textures/monitor/monitor12.png";
@@ -41,31 +27,9 @@ public class GameResources {
     public static final String MONITOR_SHOP_4 = "textures/monitor/shop/monitor4.png";
     public static final String MONITOR_SHOP_5 = "textures/monitor/shop/monitor5.png";
 
-    //computer
-
-    public static final String COMPUTER_STAGE_1 = "textures/PC/Main screen/pc1.png";
-    public static final String COMPUTER_STAGE_2 = "textures/PC/Main screen/pc2.png";
-    public static final String COMPUTER_STAGE_3 = "textures/PC/Main screen/pc3.png";
-    public static final String COMPUTER_STAGE_4 = "textures/PC/Main screen/pc4.png";
-    public static final String COMPUTER_STAGE_5 = "textures/PC/Main screen/pc5.png";
-
-    public static final String COMPUTER_SHOP_1 = "textures/PC/Shop/pc1.png";
-    public static final String COMPUTER_SHOP_2 = "textures/PC/Shop/pc2.png";
-    public static final String COMPUTER_SHOP_3 = "textures/PC/Shop/pc3.png";
-    public static final String COMPUTER_SHOP_4 = "textures/PC/Shop/pc4.png";
-    public static final String COMPUTER_SHOP_5 = "textures/PC/Shop/pc5.png";
-
     public static String BANNER_PATH = "textures/banners/banner.png";
     public static String GOLD_BANNER_PATH = "textures/banners/Gold banner.png";
     public static final String COINS_PATH = "textures/banners/coins_image.png";
-    //upgrades on GameScreen
-
-    public static final String UPGRADE_BUTTON_1 = "buttons/Ms upgrade.png";
-    public static final String UPGRADE_BUTTON_2 = "buttons/msupgrade active.png";
-    public static final String UPGRADE_BUTTON_FINAL = "buttons/msupgrade max.png";
-
-
-
     //подложки и задние фоны
     public static final String SETTINGS_BACKGROUND = "backgrounds/Setting_background.png";
     public static final String SHOP_BACKGROUND = "backgrounds/shop_background.png";
@@ -81,7 +45,6 @@ public class GameResources {
 
 
     public static final String EXIT_BUTTON_PATH = "textures/exitgame.png";
-    public static final String UPGRADE_EFFECT_PATH = "textures/upgrade_effect.png";
 
     //звуки
     public static final String CLICK_1 = "sounds/click/Click_1.mp3";

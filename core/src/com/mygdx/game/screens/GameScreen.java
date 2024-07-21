@@ -29,13 +29,8 @@ public class GameScreen extends ScreenAdapter {
     ImageView banner;
     ImageView coinsBanner;
 
-    ImageView MUpgradeImage;
-    ImageView KUpgradeImage;
-    ImageView CUpgradeImage;
-
-    ComputerView computerView;
     public KeyboardView keyboardView;
-    BackgroundView backgroundView;
+
     MyGdxGame myGdxGame;
 
     TextView scoreTextView;
@@ -59,13 +54,6 @@ public class GameScreen extends ScreenAdapter {
     TextView perTextView;
     TextView perClickText;
 
-    ImageView coinView;
-    ImageView coinView2;
-    ImageView coinView3;
-    ImageView coinView4;
-
-
-
     TextView coinsView;
     TextView playerText;
     TextView levelText;
@@ -88,24 +76,15 @@ public class GameScreen extends ScreenAdapter {
 
 
     private int needScore;
-    private short a = 0;
-    private int MLevel = 1;
-    private int KLevel = 1;
-    private int CLevel = 1;
+    private int MLevel;
+    public int KLevel;
+    private int CLevel;
 
     public GameScreen(MyGdxGame myGdxGame){
         this.myGdxGame = myGdxGame;
-
-
-
-
-
         gameSession = new GameSession();
 
-        backgroundView = new BackgroundView(GameResources.BACKGROUND_IMG_PATH);
-
         monitorView = new MonitorView(220, 450, 500, 700);
-//        computerView = new ComputerView(-39,420,500,800);
         keyboardView = new KeyboardView(-65,150,850,550);
         upgradeButtonView = new ButtonView(310,-100,400,600);
         upgradeButtonView2 = new ButtonView(-10,-100,400,600);
@@ -117,9 +96,6 @@ public class GameScreen extends ScreenAdapter {
 
         banner = new ImageView(100,990,800,400,GameResources.BANNER_PATH);
         coinsBanner = new ImageView(480,980,250,130,GameResources.COINS_PATH);
-        MUpgradeImage = new ImageView(480,780,250,130,GameResources.UPGRADE_EFFECT_PATH);
-        KUpgradeImage = new ImageView(360,680,250,130,GameResources.UPGRADE_EFFECT_PATH);
-        CUpgradeImage = new ImageView(280,780,250,130,GameResources.UPGRADE_EFFECT_PATH);
 
         exitButton = new ButtonView(-10,1080,180,200,GameResources.EXIT_BUTTON_PATH);
         settingsButton = new ButtonView(10, 700, 110,110, GameResources.BUTTON_SETTINGS);
@@ -136,11 +112,6 @@ public class GameScreen extends ScreenAdapter {
         perTextView = new TextView(myGdxGame.fontWhiteVerySmall,455,145,"Per");
         clickTextView = new TextView(myGdxGame.fontWhiteVerySmall,455,120,"Click");
 
-        coinView = new ImageView(440,173,55,50,GameResources.COIN_PATH);
-        coinView2 = new ImageView(110,173,55,50,GameResources.COIN_PATH);
-        coinView3 = new ImageView(440,48,55,50,GameResources.COIN_PATH);
-        coinView4 = new ImageView(110,48,55,50,GameResources.COIN_PATH);
-
         priceBanner = new ImageView(390,0,250,150,GameResources.PRICE_PATH);
         priceBanner2 = new ImageView(70,0,250,150,GameResources.PRICE_PATH);
 
@@ -152,6 +123,15 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
+        myGdxGame.coin1.setPosition(440,173);
+        myGdxGame.coin1.setSize(55,50);
+
+        myGdxGame.coin2.setPosition(110,173);
+        myGdxGame.coin2.setSize(55,50);
+
+        myGdxGame.coin3.setPosition(440,48);
+        myGdxGame.coin3.setSize(55,50);
+
         gameSession.startGame();
         KLevel = MemoryManager.loadKeyboardLevel();
         MLevel =MemoryManager.loadMonitorLevel();
@@ -219,7 +199,6 @@ public class GameScreen extends ScreenAdapter {
 
         myGdxGame.computer.setPosition(-39,420);
         myGdxGame.computer.setSize(500,800);
-
 
 
         if (clickForMonitor == 0){
@@ -356,15 +335,20 @@ public class GameScreen extends ScreenAdapter {
             }
         }
         if (perSecond == 20){
-            upgradeButtonView2.setImage(GameResources.UPGRADE_BUTTON_FINAL);
+            myGdxGame.upgradeButton2 = myGdxGame.textureAtlas.createSprite("msupgrade max");
         } else {
-            upgradeButtonView2.setImage(GameResources.UPGRADE_BUTTON_1);
+            myGdxGame.upgradeButton2 = myGdxGame.textureAtlas.createSprite("Ms upgrade");
         }
         if (perClick == 10){
-            upgradeButtonView.setImage(GameResources.UPGRADE_BUTTON_FINAL);
+            myGdxGame.upgradeButton1 = myGdxGame.textureAtlas.createSprite("msupgrade max");
         }else {
-            upgradeButtonView.setImage(GameResources.UPGRADE_BUTTON_1);
+            myGdxGame.upgradeButton1 = myGdxGame.textureAtlas.createSprite("Ms upgrade");
         }
+        myGdxGame.upgradeButton1.setPosition(310,-100);
+        myGdxGame.upgradeButton1.setSize(400,600);
+
+        myGdxGame.upgradeButton2.setPosition(-10,-100);
+        myGdxGame.upgradeButton2.setSize(400,600);
 
 
 
@@ -378,34 +362,34 @@ public class GameScreen extends ScreenAdapter {
 
         myGdxGame.batch.begin();
 
-        backgroundView.draw(myGdxGame.batch);
-
-        monitorView.draw(myGdxGame.batch,clickForMonitor);
-//        computerView.draw(myGdxGame.batch);
+        myGdxGame.backGround.draw(myGdxGame.batch);
 
         myGdxGame.computer.draw(myGdxGame.batch);
         myGdxGame.keyBoard.draw(myGdxGame.batch);
-//        keyboardView.draw(myGdxGame.batch);
 
-        upgradeButtonView2.draw(myGdxGame.batch);
-        upgradeButtonView.draw(myGdxGame.batch);
+        monitorView.draw(myGdxGame.batch,clickForMonitor);
+
+        myGdxGame.upgradeButton2.draw(myGdxGame.batch);
+        myGdxGame.upgradeButton1.draw(myGdxGame.batch);
+//        upgradeButtonView2.draw(myGdxGame.batch);
+//        upgradeButtonView.draw(myGdxGame.batch);
         perSecondView.draw(myGdxGame.batch);
         passiveTextView.draw(myGdxGame.batch);
         incomeTextView.draw(myGdxGame.batch);
         perClickText.draw(myGdxGame.batch);
         perTextView.draw(myGdxGame.batch);
         clickTextView.draw(myGdxGame.batch);
-        coinView.draw(myGdxGame.batch);
-        coinView2.draw(myGdxGame.batch);
+        myGdxGame.coin1.draw(myGdxGame.batch);
+        myGdxGame.coin2.draw(myGdxGame.batch);
 
         if (perSecond != 20){
             priceBanner2.draw(myGdxGame.batch);
             priceOfPerSecondText.draw(myGdxGame.batch);
-            coinView4.draw(myGdxGame.batch);
+            myGdxGame.coin4.draw(myGdxGame.batch);
         }
         if (perClick != 10){
             priceBanner.draw(myGdxGame.batch);
-            coinView3.draw(myGdxGame.batch);
+            myGdxGame.coin3.draw(myGdxGame.batch);
             priceOfPerClickText.draw(myGdxGame.batch);
         }
 
@@ -431,9 +415,7 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void dispose(){
-        backgroundView.dispose();
         monitorView.dispose();
-        computerView.dispose();
         keyboardView.dispose();
 
         upgradeButtonView2.dispose();
@@ -444,10 +426,6 @@ public class GameScreen extends ScreenAdapter {
         perClickText.dispose();
         perTextView.dispose();
         clickTextView.dispose();
-        coinView.dispose();
-        coinView2.dispose();
-        coinView3.dispose();
-        coinView4.dispose();
 
         priceBanner2.dispose();
         priceBanner.dispose();
