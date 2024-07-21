@@ -77,7 +77,7 @@ public class GameScreen extends ScreenAdapter {
         this.myGdxGame = myGdxGame;
         gameSession = new GameSession();
 
-        monitorView = new MonitorView(220, 450, 500, 700);
+        monitorView = new MonitorView(220, 450, 500, 600);
         keyboardView = new KeyboardView(-65,150,850,550);
         upgradeButtonView = new ButtonView(310,-100,400,600);
         upgradeButtonView2 = new ButtonView(-10,-100,400,600);
@@ -90,7 +90,6 @@ public class GameScreen extends ScreenAdapter {
         exitButton = new ButtonView(-10,1080,180,200);
         settingsButton = new ButtonView(10, 700, 110,110);
         shopButton = new ButtonView(600, 700, 110,110);
-
 
         perSecondView = new TextView(myGdxGame.fontWhite,160,180);
         passiveTextView = new TextView(myGdxGame.fontWhiteVerySmall,140,145,"Passive");

@@ -27,14 +27,15 @@ import com.mygdx.game.screens.GameScreen;
 import com.mygdx.game.screens.SettingsScreen;
 import com.mygdx.game.screens.ShopScreen;
 
+import java.util.ArrayList;
+
 import javax.swing.Spring;
 
 public class MyGdxGame extends Game {
-	public TextureAtlas textureAtlas;
+	public static TextureAtlas textureAtlas;
 
 	public Sprite keyBoard;
 	public Sprite computer;
-	public Sprite monitor;
 
 	public Sprite monitorShop;
 	public Sprite keyBoardShop;
