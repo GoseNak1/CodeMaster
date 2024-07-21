@@ -54,6 +54,7 @@ public class MonitorView extends View {
                 animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor51");
                 animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor52");
                 animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor53");
+
                 break;
             default:
                 animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor11");
