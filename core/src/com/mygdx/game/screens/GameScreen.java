@@ -122,6 +122,19 @@ public class GameScreen extends ScreenAdapter {
         KLevel = MemoryManager.loadKeyboardLevel();
         MLevel =MemoryManager.loadMonitorLevel();
         CLevel = MemoryManager.loadComputerLevel();
+
+        playerLevel = MemoryManager.loadPlayerLevel();
+        goldBanner = MemoryManager.loadGoldBanner();
+        score = MemoryManager.loadScore();
+
+        needScore = (playerLevel+1)*200;
+        coins = MemoryManager.loadCoins();
+        perClick = MemoryManager.loadPerClick();
+        perSecond = MemoryManager.loadPerSecond();
+        priceOfPerSecond = (perSecond-8)*100;
+        priceOfPerClick = (perClick+1)*100;
+        MSeconds = MemoryManager.loadMSeconds();
+
         if (KLevel == 0){
             MemoryManager.saveKeyboardLevel(1);
         }
