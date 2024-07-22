@@ -163,7 +163,7 @@ public class MyGdxGame extends Game {
 		shopScreen = new ShopScreen(this);
 
 
-		setScreen(shopScreen);
+		setScreen(gameScreen);
 	}
 
 
