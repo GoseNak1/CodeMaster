@@ -119,6 +119,24 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
+        if (KLevel == 0){
+            MemoryManager.saveKeyboardLevel(1);
+        }
+        if(MLevel == 0){
+            MemoryManager.saveMonitorLevel(1);
+        }
+        if(CLevel == 0){
+            MemoryManager.saveComputerLevel(1);
+        }
+        if(playerLevel == 0){
+            MemoryManager.savePlayerLevel(1);
+        }
+        if (perSecond == 0){
+            MemoryManager.savePerSecond(10);
+        }
+        if (perClick == 0){
+            MemoryManager.savePerClick(1);
+        }
         switch (MemoryManager.loadMonitorLevel()){
             case 1:
                 animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor11");
@@ -314,15 +332,7 @@ public class GameScreen extends ScreenAdapter {
             myGdxGame.banner.setPosition(100,990);
             myGdxGame.banner.setSize(800,400);
         }
-        if(playerLevel == 0){
-            MemoryManager.savePlayerLevel(1);
-        }
-        if (perSecond == 0){
-            MemoryManager.savePerSecond(10);
-        }
-        if (perClick == 0){
-            MemoryManager.savePerClick(1);
-        }
+
         switch (MLevel){
             case 1: MemoryManager.saveMSeconds(5000); break;
             case 2: MemoryManager.saveMSeconds(4000); break;
