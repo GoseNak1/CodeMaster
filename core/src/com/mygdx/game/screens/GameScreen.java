@@ -70,6 +70,7 @@ public class GameScreen extends ScreenAdapter {
 
     TextView priceOfPerClickText;
     TextView priceOfPerSecondText;
+    TextView maxText;
 
 
     ButtonView upgradeButtonView;
@@ -93,6 +94,7 @@ public class GameScreen extends ScreenAdapter {
         scoreTextView = new TextView(myGdxGame.fontWhiteSmall, 465,1150);
         playerLevelView = new TextView(myGdxGame.fontWhite,360,1180);
         coinsView = new TextView(myGdxGame.fontWhiteSmall,595,1035);
+        maxText = new TextView(myGdxGame.fontWhite,580,975,"MAX!");
 
         exitButton = new ButtonView(-10,1080,180,200);
         settingsButton = new ButtonView(10, 700, 110,110);
@@ -328,7 +330,7 @@ public class GameScreen extends ScreenAdapter {
             case 4: MemoryManager.saveMSeconds(2000); break;
             case 5: MemoryManager.saveMSeconds(1000); break;
         }
-        if(gameSession.shouldGiveMoney()){
+        if(gameSession.shouldGiveMoney() && coins <= 9990){
             coins += perSecond;
             MemoryManager.saveCoins(coins);
         }
@@ -470,6 +472,7 @@ public class GameScreen extends ScreenAdapter {
         }
 
 
+
         myGdxGame.banner.draw(myGdxGame.batch);
         myGdxGame.coinsBanner.draw(myGdxGame.batch);
         coinsView.draw(myGdxGame.batch);
@@ -485,7 +488,9 @@ public class GameScreen extends ScreenAdapter {
         levelText.draw(myGdxGame.batch);
 
 
-
+        if(coins >= 9990){
+            maxText.draw(myGdxGame.batch);
+        }
 
         myGdxGame.batch.end();
     }
