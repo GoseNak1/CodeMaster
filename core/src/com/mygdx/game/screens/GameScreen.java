@@ -381,7 +381,7 @@ public class GameScreen extends ScreenAdapter {
                     if(myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.clickSound3.play();
                 }
 
-                if (counter == 10){
+                if (counter == 10 && coins <= 9990){
                     coins += coinsFor10Click;
                     counter = 0;
                 }
