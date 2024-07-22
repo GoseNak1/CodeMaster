@@ -119,6 +119,9 @@ public class GameScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
+        KLevel = MemoryManager.loadKeyboardLevel();
+        MLevel =MemoryManager.loadMonitorLevel();
+        CLevel = MemoryManager.loadComputerLevel();
         if (KLevel == 0){
             MemoryManager.saveKeyboardLevel(1);
         }
