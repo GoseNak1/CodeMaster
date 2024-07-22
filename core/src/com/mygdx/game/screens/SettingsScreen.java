@@ -27,41 +27,41 @@ public class SettingsScreen extends ScreenAdapter {
 
     public SettingsScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-        titleTextView = new TextView(myGdxGame.fontBlackBig, 160, 900, "Settings");
-        clearSettingView1 = new TextView(myGdxGame.fontWhite, 270, 400, "reset");
-        clearSettingView2 = new TextView(myGdxGame.fontWhite, 210, 350, "progress");
+        titleTextView = new TextView(myGdxGame.fontBlackBig, 160, 1050, "Settings");
+        clearSettingView1 = new TextView(myGdxGame.fontWhite, 270, 550, "reset");
+        clearSettingView2 = new TextView(myGdxGame.fontWhite, 210, 500, "progress");
 
         musicSettingView = new TextView(
                 myGdxGame.fontBlack,
-                120, 717,
+                120, 867,
                 "music: " + translateStateToText(MemoryManager.loadIsMusicOn())
         );
 
         soundSettingView = new TextView(
                 myGdxGame.fontBlack,
-                120, 658,
+                120, 808,
                 "sound: " + translateStateToText(MemoryManager.loadIsSoundOn())
         );
 
 
-        returnButton = new ButtonView(20, 1100, 170, 170);
+        returnButton = new ButtonView(-10, 1350, 200, 220);
 
-        resetButton = new ButtonView(120, 240, 467, 280);
+        resetButton = new ButtonView(120, 390, 467, 280);
 
         goldbanner = new TextView(
                 myGdxGame.fontBlackBtw,
-                120, 555,
+                120, 705,
                 "gold banner: " + translateStateToText(MemoryManager.loadGoldBanner()));
     }
     @Override
     public void show(){
-        myGdxGame.resetProgress.setPosition(120, 240);
+        myGdxGame.resetProgress.setPosition(120, 390);
         myGdxGame.resetProgress.setSize(467, 280);
 
-        myGdxGame.backButton.setPosition(20, 1100);
-        myGdxGame.backButton.setSize(170, 170);
+        myGdxGame.backButton.setPosition(-10, 1350);
+        myGdxGame.backButton.setSize(200, 220);
 
-        myGdxGame.settingsBackground.setPosition(-180, -180);
+        myGdxGame.settingsBackground.setPosition(-180, -50);
         myGdxGame.settingsBackground.setSize(1100,1600);
     }
 
@@ -135,7 +135,7 @@ public class SettingsScreen extends ScreenAdapter {
             if (goldbanner.isHit(myGdxGame.touch.x,myGdxGame.touch.y)){
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 MemoryManager.saveGoldBanner(!MemoryManager.loadGoldBanner());
-                goldbanner.setText("gold banner "+ translateStateToText(MemoryManager.loadGoldBanner()));
+                goldbanner.setText("gold banner: "+ translateStateToText(MemoryManager.loadGoldBanner()));
                 if(MemoryManager.loadGoldBanner()){
                     GameResources.BANNER_PATH = "textures/banners/Gold banner.png";
                 }else {
