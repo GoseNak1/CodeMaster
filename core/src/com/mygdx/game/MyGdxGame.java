@@ -96,6 +96,7 @@ public class MyGdxGame extends Game {
 	public BitmapFont fontBlackSmall;
 	public BitmapFont fontBlackAverage;
 	public BitmapFont fontRed;
+	public BitmapFont waterMark;
 
 	public AudioManager audioManager;
 
@@ -105,6 +106,7 @@ public class MyGdxGame extends Game {
 
 
 		Color colorS = new Color(0.14F, 0.14F, 0.14F, 0.6F);
+		Color colorWM = new Color(0, 255, 0, 0.1F);
 		fontWhiteVerySmall = FontBuilder.generate(30,Color.WHITE,GameResources.FONT_PATH);
 		fontWhiteSmall = FontBuilder.generate(50, Color.WHITE,GameResources.FONT_PATH);
 		fontWhite = FontBuilder.generate(70, Color.WHITE, GameResources.FONT_PATH);
@@ -114,6 +116,7 @@ public class MyGdxGame extends Game {
 		fontBlackAverage = FontBuilder.generate(35, colorS,GameResources.FONT_PATH);
 		fontBlackBtw = FontBuilder.generate(55,colorS,GameResources.FONT_PATH);
 		fontRed = FontBuilder.generate(35, Color.RED,GameResources.FONT_PATH);
+		waterMark = FontBuilder.generate(50,colorWM,GameResources.FONT_WATERMARK_PATH);
 
 		textureAtlas  = new TextureAtlas("assets.txt");
 		backGround = textureAtlas.createSprite("Background");

@@ -23,6 +23,7 @@ public class SettingsScreen extends ScreenAdapter {
     TextView clearSettingView1;
     TextView clearSettingView2;
     TextView goldbanner;
+    TextView waterMark;
     private boolean isOld;
 
     public SettingsScreen(MyGdxGame myGdxGame) {
@@ -30,6 +31,7 @@ public class SettingsScreen extends ScreenAdapter {
         titleTextView = new TextView(myGdxGame.fontBlackBig, 160, 1050, "Settings");
         clearSettingView1 = new TextView(myGdxGame.fontWhite, 270, 550, "reset");
         clearSettingView2 = new TextView(myGdxGame.fontWhite, 210, 500, "progress");
+        waterMark = new TextView(myGdxGame.waterMark,0,0,"kyber alliance");
 
         musicSettingView = new TextView(
                 myGdxGame.fontBlack,
@@ -50,7 +52,7 @@ public class SettingsScreen extends ScreenAdapter {
 
         goldbanner = new TextView(
                 myGdxGame.fontBlackBtw,
-                120, 705,
+                120, 745,
                 "gold banner: " + translateStateToText(MemoryManager.loadGoldBanner()));
     }
     @Override
@@ -92,7 +94,7 @@ public class SettingsScreen extends ScreenAdapter {
             MemoryManager.saveIsOld(true);
             isOld = MemoryManager.loadIsOld();
         }
-
+        waterMark.draw(myGdxGame.batch);
         myGdxGame.batch.end();
     }
 
@@ -136,12 +138,6 @@ public class SettingsScreen extends ScreenAdapter {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 MemoryManager.saveGoldBanner(!MemoryManager.loadGoldBanner());
                 goldbanner.setText("gold banner: "+ translateStateToText(MemoryManager.loadGoldBanner()));
-                if(MemoryManager.loadGoldBanner()){
-                    GameResources.BANNER_PATH = "textures/banners/Gold banner.png";
-                }else {
-                    GameResources.BANNER_PATH = "textures/banners/banner.png";
-                }
-
             }
         }
     }
@@ -152,6 +148,7 @@ public class SettingsScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
+        waterMark.dispose();
         titleTextView.dispose();
         returnButton.dispose();
         resetButton.dispose();

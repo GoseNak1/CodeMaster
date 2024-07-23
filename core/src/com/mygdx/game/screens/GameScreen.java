@@ -38,6 +38,8 @@ public class GameScreen extends ScreenAdapter {
 
     TextView scoreTextView;
 
+    TextView waterMark;
+
     ButtonView shopButton;
     ButtonView settingsButton;
     public boolean goldBanner;
@@ -94,11 +96,13 @@ public class GameScreen extends ScreenAdapter {
         scoreTextView = new TextView(myGdxGame.fontWhiteSmall, 465,1410);
         playerLevelView = new TextView(myGdxGame.fontWhite,360,1440);
         coinsView = new TextView(myGdxGame.fontWhiteSmall,595,1295);
-        maxText = new TextView(myGdxGame.fontWhite,580,975,"MAX!");
+        maxText = new TextView(myGdxGame.fontWhite,580,1230,"MAX!");
 
         exitButton = new ButtonView(-10,1340,200,210);
         settingsButton = new ButtonView(10, 700, 110,110);
         shopButton = new ButtonView(600, 700, 110,110);
+
+        waterMark = new TextView(myGdxGame.waterMark,0,0,"kyber alliance");
 
         perSecondView = new TextView(myGdxGame.fontWhite,160,180);
         passiveTextView = new TextView(myGdxGame.fontWhiteVerySmall,140,145,"Passive");
@@ -370,7 +374,12 @@ public class GameScreen extends ScreenAdapter {
         perSecondView.setText(""+ perSecond);
         perClickText.setText(""+ perClick);
         coinsView.setText(""+ coins);
-        needScoreView.setText(""+ needScore);
+        if (playerLevel == 10){
+            needScoreView.setText("max!");
+        } else{
+            needScoreView.setText(""+ needScore);
+        }
+
         playerLevelView.setText(""+ playerLevel);
         scoreTextView.setText("" + score);
 
@@ -398,7 +407,9 @@ public class GameScreen extends ScreenAdapter {
                 if(coins <= 9990){
                     coins += perClick;
                 }
-                score += 1;
+                if (MemoryManager.loadPlayerLevel() < 10) {
+                    score += 1;
+                }
 
                 clickForMonitor += 1;
                 if(clickForMonitor >= 3){
@@ -514,11 +525,13 @@ public class GameScreen extends ScreenAdapter {
         if(coins >= 9990){
             maxText.draw(myGdxGame.batch);
         }
+        waterMark.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
     @Override
     public void dispose(){
+        waterMark.dispose();
         keyboardView.dispose();
 
         perSecondView.dispose();

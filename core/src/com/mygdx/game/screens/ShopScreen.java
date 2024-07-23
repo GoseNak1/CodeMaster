@@ -68,8 +68,12 @@ public class ShopScreen extends ScreenAdapter {
     int CNeedToPay;
     int KCoins;
 
+    TextView waterMark;
+
     public ShopScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
+
+        waterMark = new TextView(myGdxGame.waterMark,0,0,"kyber alliance");
 
         titleTextView = new TextView(myGdxGame.fontBlackBig, 210, 1453, "Shop");
         coinsTextView = new TextView(myGdxGame.fontWhiteSmall, 580, 1468);
@@ -596,11 +600,13 @@ public class ShopScreen extends ScreenAdapter {
 
             CCostTextView.draw(myGdxGame.batch);
         }
+        waterMark.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
     @Override
     public void dispose(){
+        waterMark.dispose();
         myGdxGame.dispose();
         titleTextView.dispose();
         coinsTextView.dispose();
