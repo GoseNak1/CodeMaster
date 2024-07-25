@@ -17,10 +17,7 @@ public class KeyboardView extends View {
     public KeyboardView(float x, float y, float width, float height){
         super(x, y, width, height);
         myGdxGame = new MyGdxGame();
-        if(MemoryManager.loadKeyboardLevel() >= 6){
-            MemoryManager.saveKeyboardLevel(1);
-            level = 1;
-        }
+
     }
     public static void levelUp(){
         level = MemoryManager.loadKeyboardLevel() + 1;

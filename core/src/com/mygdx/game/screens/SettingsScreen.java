@@ -119,7 +119,7 @@ public class SettingsScreen extends ScreenAdapter {
                 MemoryManager.saveMonitorLevel(1);
                 MemoryManager.saveKeyboardLevel(1);
                 MemoryManager.saveComputerLevel(1);
-                MemoryManager.savePerSecond(10);
+                MemoryManager.savePerSecond(5);
 
             }
             if (musicSettingView.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {

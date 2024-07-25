@@ -50,6 +50,9 @@ public class ShopScreen extends ScreenAdapter {
     TextView CInfoTextView8;
     TextView CInfoTextView9;
     TextView CInfoTextView10;
+    TextView CInfoTextView11;
+    TextView CInfoTextView12;
+
 
     TextView maxTextView1;
     TextView maxTextView2;
@@ -75,8 +78,8 @@ public class ShopScreen extends ScreenAdapter {
 
         waterMark = new TextView(myGdxGame.waterMark,0,0,"kyber alliance");
 
-        titleTextView = new TextView(myGdxGame.fontBlackBig, 210, 1453, "Shop");
-        coinsTextView = new TextView(myGdxGame.fontWhiteSmall, 580, 1468);
+        titleTextView = new TextView(myGdxGame.fontBlackBig, 250, 1453, "Shop");
+        coinsTextView = new TextView(myGdxGame.fontWhiteSmall, 340, 1215);
         monitorTextView = new TextView(myGdxGame.fontBlack, 235, 1110, "Monitor");
         keyboardTextView = new TextView(myGdxGame.fontBlack, 210, 840, "Keyboard");
         computerTextView = new TextView(myGdxGame.fontBlack, 210, 535, "Computer");
@@ -107,7 +110,10 @@ public class ShopScreen extends ScreenAdapter {
         CInfoTextView7 = new TextView(myGdxGame.fontBlackSmall, 225, 380, "available");
         CInfoTextView8 = new TextView(myGdxGame.fontBlackSmall, 225, 360, "on Player");
         CInfoTextView9 = new TextView(myGdxGame.fontBlackSmall, 225, 340, "Level 3)");
-        CInfoTextView10 = new TextView(myGdxGame.fontBlackSmall, 225, 340, "Level 8)");
+        CInfoTextView10 = new TextView(myGdxGame.fontBlackSmall, 225, 340, "Level 6)");
+        CInfoTextView11 = new TextView(myGdxGame.fontBlackSmall, 225,340, "level 8)");
+        CInfoTextView12 = new TextView(myGdxGame.fontBlackSmall, 225,340, "level 10)");
+
 
         maxTextView1 = new TextView(myGdxGame.fontWhiteVerySmall, 470, 945, "Max level");
         maxTextView2 = new TextView(myGdxGame.fontWhiteVerySmall, 470, 635, "Max level");
@@ -128,73 +134,42 @@ public class ShopScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
-        switch (MemoryManager.loadKeyboardLevel()){
-            case 1:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
-                KNeedToPay = 300;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 20;
-                KInfoTextView2.setText(""+ KCoins);
-                break;
-            case 2:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
-                KNeedToPay = 500;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 30;
-                KInfoTextView2.setText(""+ KCoins);
-                break;
-            case 3:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
-                KNeedToPay = 1000;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 40;
-                KInfoTextView2.setText(""+ KCoins);
-                break;
-            case 4:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
-                KNeedToPay = 1500;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 50;
-                KInfoTextView2.setText(""+ KCoins);
-                break;
-            case 5:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
-                break;
-            default:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
-                KNeedToPay = 300;
-                KCostTextView.setText(""+ KNeedToPay);
-                KCoins = 20;
-                KInfoTextView2.setText(""+ KCoins);
+        System.out.println(MemoryManager.loadKeyboardLevel());
+        if(MemoryManager.loadKeyboardLevel() < 5){
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
+            KCoins = 20;
+        } else if (MemoryManager.loadKeyboardLevel() >= 5 && MemoryManager.loadKeyboardLevel() < 10) {
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
+            KCoins = 30;
+        }else if (MemoryManager.loadKeyboardLevel() >= 10 && MemoryManager.loadKeyboardLevel() < 15){
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
+            KCoins = 40;
+        }else if (MemoryManager.loadKeyboardLevel() >= 15 && MemoryManager.loadKeyboardLevel() < 20){
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
+            KCoins = 50;
+        }else {
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
+            KCoins = 60;
         }
+        KInfoTextView2.setText(""+ KCoins);
         switch (MemoryManager.loadComputerLevel()){
             case 1:
                 myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                CNeedToPay = 600;
-                CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 2:
                 myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
-                CNeedToPay = 1000;
-                CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 3:
                 myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
-                CNeedToPay = 2000;
-                CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 4:
                 myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
-                CNeedToPay = 3000;
-                CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 5:
                 myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
                 break;
             default:
                 myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                CNeedToPay = 600;
-                CCostTextView.setText(""+ CNeedToPay);
                 break;
         }
         switch (MemoryManager.loadMonitorLevel()){
@@ -255,7 +230,7 @@ public class ShopScreen extends ScreenAdapter {
         myGdxGame.shopUpgradeButtonLocked3.setPosition(380, 320);
         myGdxGame.shopUpgradeButtonLocked3.setSize(280, 150);
 
-        myGdxGame.shopImage.setPosition(120, 1358);
+        myGdxGame.shopImage.setPosition(160, 1358);
         myGdxGame.shopImage.setSize(400, 250);
 
         myGdxGame.shopBackground.setPosition(-120, 100);
@@ -264,8 +239,8 @@ public class ShopScreen extends ScreenAdapter {
         myGdxGame.backButton.setPosition(-20, 1380);
         myGdxGame.backButton.setSize(200, 200);
 
-        myGdxGame.coinsBanner.setPosition(475, 1403);
-        myGdxGame.coinsBanner.setSize(240, 150);
+        myGdxGame.coinsBanner.setPosition(195, 1150);
+        myGdxGame.coinsBanner.setSize(330, 150);
 
         myGdxGame.coin1.setPosition(570, 920);
         myGdxGame.coin2.setPosition(570, 610);
@@ -273,10 +248,44 @@ public class ShopScreen extends ScreenAdapter {
         myGdxGame.coin1.setSize(60,60);
         myGdxGame.coin2.setSize(60,60);
         myGdxGame.coin3.setSize(60,60);
+
+        KNeedToPay = (700 * (MemoryManager.loadKeyboardLevel() + 1) * (MemoryManager.loadKeyboardLevel() + 1))/10;
+        CNeedToPay = (1000 * (MemoryManager.loadComputerLevel() + 1) * (MemoryManager.loadComputerLevel() + 1)) / 10;
+        KCostTextView.setText(""+ KNeedToPay);
+        CCostTextView.setText(""+ CNeedToPay);
     }
 
     @Override
     public void render(float delta) {
+        switch (MemoryManager.loadKeyboardLevel()){
+            case 1: GameScreen.coinsFor10Click = 2; break;
+            case 2: GameScreen.coinsFor10Click = 4; break;
+            case 3: GameScreen.coinsFor10Click = 6; break;
+            case 4: GameScreen.coinsFor10Click = 8; break;
+            case 5: GameScreen.coinsFor10Click = 10; break;
+            case 6: GameScreen.coinsFor10Click = 12; break;
+            case 7: GameScreen.coinsFor10Click = 14; break;
+            case 8: GameScreen.coinsFor10Click = 16; break;
+            case 9: GameScreen.coinsFor10Click = 18; break;
+            case 10: GameScreen.coinsFor10Click = 20; break;
+            case 11: GameScreen.coinsFor10Click = 22; break;
+            case 12: GameScreen.coinsFor10Click = 24; break;
+            case 13: GameScreen.coinsFor10Click = 26; break;
+            case 14: GameScreen.coinsFor10Click = 28; break;
+            case 15: GameScreen.coinsFor10Click = 30; break;
+            case 16: GameScreen.coinsFor10Click = 32; break;
+            case 17: GameScreen.coinsFor10Click = 34; break;
+            case 18: GameScreen.coinsFor10Click = 36; break;
+            case 19: GameScreen.coinsFor10Click = 38; break;
+            case 20: GameScreen.coinsFor10Click = 40; break;
+        }
+        KNeedToPay = (700 * (MemoryManager.loadKeyboardLevel() + 1) * (MemoryManager.loadKeyboardLevel() + 1)) / 10;
+        MNeedToPay = (700 * (MemoryManager.loadMonitorLevel() + 1) * (MemoryManager.loadMonitorLevel() + 1)) / 10;
+        CNeedToPay = (1000 * (MemoryManager.loadComputerLevel() + 1) * (MemoryManager.loadComputerLevel() + 1)) / 10;
+
+        KCostTextView.setText(""+ KNeedToPay);
+        CCostTextView.setText(""+ CNeedToPay);
+        MCostTextView.setText(""+ MNeedToPay);
 
         coinsTextView.setText(""+ MemoryManager.loadCoins());
         MLevelTextView.setText(""+ MemoryManager.loadMonitorLevel());
@@ -284,6 +293,47 @@ public class ShopScreen extends ScreenAdapter {
         CLevelTextView.setText(""+ MemoryManager.loadComputerLevel());
 
         handleInput();
+        if(MemoryManager.loadComputerLevel() < 5){
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
+        } else if (MemoryManager.loadComputerLevel() >= 5 && MemoryManager.loadComputerLevel() < 10) {
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
+        }else if (MemoryManager.loadComputerLevel() >= 10 && MemoryManager.loadComputerLevel() < 15){
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
+        }else if (MemoryManager.loadComputerLevel() >= 15 && MemoryManager.loadComputerLevel() < 20){
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
+        }else {
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
+        }
+        if(MemoryManager.loadKeyboardLevel() < 5){
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
+        } else if (MemoryManager.loadKeyboardLevel() >= 5 && MemoryManager.loadKeyboardLevel() < 10) {
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
+        }else if (MemoryManager.loadKeyboardLevel() >= 10 && MemoryManager.loadKeyboardLevel() < 15){
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
+        }else if (MemoryManager.loadKeyboardLevel() >= 15 && MemoryManager.loadKeyboardLevel() < 20){
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
+        }else {
+            myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
+        }
+        if(MemoryManager.loadMonitorLevel() < 5){
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
+        } else if (MemoryManager.loadMonitorLevel() >= 5 && MemoryManager.loadMonitorLevel() < 10) {
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor2");
+        }else if (MemoryManager.loadMonitorLevel() >= 10 && MemoryManager.loadMonitorLevel() < 15){
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor3");
+        }else if (MemoryManager.loadMonitorLevel() >= 15 && MemoryManager.loadMonitorLevel() < 20){
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor4");
+        }else {
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor5");
+        }
+
+        myGdxGame.monitorShop.setPosition(40,955);
+        myGdxGame.monitorShop.setSize(225, 150);
+        myGdxGame.keyBoardShop.setPosition(60, 655);
+        myGdxGame.keyBoardShop.setSize(275, 150);
+        KInfoTextView2.setText(""+ GameScreen.coinsFor10Click);
+        myGdxGame.computerShop.setPosition(80, 370);
+        myGdxGame.computerShop.setSize(150, 150);
 
         draw();
     }
@@ -297,204 +347,60 @@ public class ShopScreen extends ScreenAdapter {
                 myGdxGame.setScreen(myGdxGame.gameScreen);
             }
 
-            if (upgradeButton1.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadMonitorLevel() <= 4 && MemoryManager.loadCoins() >= MNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadMonitorLevel()) {
+            if (upgradeButton1.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadMonitorLevel() <= 19 && MemoryManager.loadCoins() >= MNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadMonitorLevel()) {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 int odd = MemoryManager.loadCoins() - MNeedToPay;
                 MemoryManager.saveCoins(odd);
                 MonitorView.levelUp();
-                switch (MemoryManager.loadMonitorLevel()){
-                    case 1:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
-                        MNeedToPay = 300;
-                        MCostTextView.setText(""+ MNeedToPay);
-                        break;
-                    case 2:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor2");
-                        MNeedToPay = 500;
-                        MCostTextView.setText(""+ MNeedToPay);
-                        break;
-                    case 3:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor3");
-                        MNeedToPay = 1000;
-                        MCostTextView.setText(""+ MNeedToPay);
-                        break;
-                    case 4:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor4");
-                        MNeedToPay = 1500;
-                        MCostTextView.setText(""+ MNeedToPay);
-                        break;
-                    case 5:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor5");
-                        break;
-                    default:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
-                        MNeedToPay = 300;
-                        MCostTextView.setText(""+ MNeedToPay);
-                }
-
-
-                myGdxGame.monitorShop.setPosition(40,955);
-                myGdxGame.monitorShop.setSize(225, 150);
             }
-            if (upgradeButton2.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadKeyboardLevel() <= 4 && MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel()) {
+
+            if (upgradeButton2.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadKeyboardLevel() <= 19 && MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel()) {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 int odd = MemoryManager.loadCoins() - KNeedToPay;
                 MemoryManager.saveCoins(odd);
                 KeyboardView.levelUp();
-                switch (MemoryManager.loadKeyboardLevel()){
-                    case 1:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
-                        KNeedToPay = 300;
-                        KCostTextView.setText(""+ KNeedToPay);
-                        KCoins = 20;
-                        KInfoTextView2.setText(""+ KCoins);
-                        break;
-                    case 2:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
-                        KNeedToPay = 500;
-                        KCostTextView.setText(""+ KNeedToPay);
-                        KCoins = 30;
-                        KInfoTextView2.setText(""+ KCoins);
-                        break;
-                    case 3:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
-                        KNeedToPay = 1000;
-                        KCostTextView.setText(""+ KNeedToPay);
-                        KCoins = 40;
-                        KInfoTextView2.setText(""+ KCoins);
-                        break;
-                    case 4:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
-                        KNeedToPay = 1500;
-                        KCostTextView.setText(""+ KNeedToPay);
-                        KCoins = 50;
-                        KInfoTextView2.setText(""+ KCoins);
-                        break;
-                    case 5:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
-                    default:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
-                        KNeedToPay = 300;
-                        KCostTextView.setText(""+ KNeedToPay);
-                        KCoins = 20;
-                        KInfoTextView2.setText(""+ KCoins);
-                }
-
-                myGdxGame.keyBoardShop.setPosition(60, 655);
-                myGdxGame.keyBoardShop.setSize(275, 150);
             }
 
-            if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 3) {
+            if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 3) {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 int odd = MemoryManager.loadCoins() - CNeedToPay;
                 MemoryManager.saveCoins(odd);
                 ComputerView.levelUp();
-                switch (MemoryManager.loadComputerLevel()){
-                    case 1:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                        CNeedToPay = 600;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 2:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
-                        CNeedToPay = 1000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 3:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
-                        CNeedToPay = 2000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 4:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
-                        CNeedToPay = 3000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 5:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
-                        break;
-                    default:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                        CNeedToPay = 600;
-                        CCostTextView.setText(""+ CNeedToPay);
-                }
-
-                myGdxGame.computerShop.setPosition(80, 370);
-                myGdxGame.computerShop.setSize(150, 150);
-            } else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() > 1 && MemoryManager.loadComputerLevel() < 4 && MemoryManager.loadCoins() >= CNeedToPay) {
+            } else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 9 && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 6) {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 int odd = MemoryManager.loadCoins() - CNeedToPay;
                 MemoryManager.saveCoins(odd);
                 ComputerView.levelUp();
-                switch (MemoryManager.loadComputerLevel()){
-                    case 1:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                        CNeedToPay = 600;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 2:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
-                        CNeedToPay = 1000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 3:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
-                        CNeedToPay = 2000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 4:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
-                        CNeedToPay = 3000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 5:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
-                        break;
-                    default:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                        CNeedToPay = 600;
-                        CCostTextView.setText(""+ CNeedToPay);
-                }
-
-                myGdxGame.computerShop.setPosition(80, 370);
-                myGdxGame.computerShop.setSize(150, 150);
-            } else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 8) {
+            } else if (upgradeButton3.isHit(myGdxGame.touch.x,myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 14 && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 8) {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 int odd = MemoryManager.loadCoins() - CNeedToPay;
                 MemoryManager.saveCoins(odd);
                 ComputerView.levelUp();
-                switch (MemoryManager.loadComputerLevel()){
-                    case 1:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                        CNeedToPay = 600;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 2:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
-                        CNeedToPay = 1000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 3:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
-                        CNeedToPay = 2000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 4:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
-                        CNeedToPay = 3000;
-                        CCostTextView.setText(""+ CNeedToPay);
-                        break;
-                    case 5:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
-                        break;
-                    default:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                        CNeedToPay = 600;
-                        CCostTextView.setText(""+ CNeedToPay);
-                }
-
-                myGdxGame.computerShop.setPosition(80, 370);
-                myGdxGame.computerShop.setSize(150, 150);
+            } else if (upgradeButton3.isHit(myGdxGame.touch.x,myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 19  && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() == 10) {
+                if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
+                int odd = MemoryManager.loadCoins() - CNeedToPay;
+                MemoryManager.saveCoins(odd);
+                ComputerView.levelUp();
+            }else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() > 4 && MemoryManager.loadComputerLevel() < 9 && MemoryManager.loadCoins() >= CNeedToPay) {
+                if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
+                int odd = MemoryManager.loadCoins() - CNeedToPay;
+                MemoryManager.saveCoins(odd);
+                ComputerView.levelUp();
+            }else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() > 9 && MemoryManager.loadComputerLevel() < 14 && MemoryManager.loadCoins() >= CNeedToPay) {
+                if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
+                int odd = MemoryManager.loadCoins() - CNeedToPay;
+                MemoryManager.saveCoins(odd);
+                ComputerView.levelUp();
+            }else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() > 14 && MemoryManager.loadComputerLevel() < 19 && MemoryManager.loadCoins() >= CNeedToPay) {
+                if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
+                int odd = MemoryManager.loadCoins() - CNeedToPay;
+                MemoryManager.saveCoins(odd);
+                ComputerView.levelUp();
+            }else if (upgradeButton3.isHit(myGdxGame.touch.x, myGdxGame.touch.y) && MemoryManager.loadComputerLevel() < 4 && MemoryManager.loadCoins() >= CNeedToPay) {
+                if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
+                int odd = MemoryManager.loadCoins() - CNeedToPay;
+                MemoryManager.saveCoins(odd);
+                ComputerView.levelUp();
             }
         }
     }
@@ -529,40 +435,37 @@ public class ShopScreen extends ScreenAdapter {
         MInfoTextView1.draw(myGdxGame.batch);
         MInfoTextView2.draw(myGdxGame.batch);
         MInfoTextView3.draw(myGdxGame.batch);
-        if (MemoryManager.loadCoins() >= MNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadMonitorLevel() || MemoryManager.loadMonitorLevel() == 5){
+        if (MemoryManager.loadCoins() >= MNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadMonitorLevel()){
             myGdxGame.shopUpgradeButton1.draw(myGdxGame.batch);
         } else {
             myGdxGame.shopUpgradeButtonLocked1.draw(myGdxGame.batch);
         }
-        if (MemoryManager.loadMonitorLevel() == 5){
+        if (MemoryManager.loadMonitorLevel() == 20){
             myGdxGame.shopUpgradeButtonLocked1.draw(myGdxGame.batch);
             maxTextView1.draw(myGdxGame.batch);
         } else {
-            myGdxGame.coin1.draw(myGdxGame.batch);
-
             MCostTextView.draw(myGdxGame.batch);
         }
 
         keyboardTextView.draw(myGdxGame.batch);
         nowTextView2.draw(myGdxGame.batch);
         KLevelTextView.draw(myGdxGame.batch);
-        if (MemoryManager.loadKeyboardLevel() != 5) {
-            KInfoTextView1.draw(myGdxGame.batch);
-            KInfoTextView2.draw(myGdxGame.batch);
-            KInfoTextView3.draw(myGdxGame.batch);
-            KInfoTextView4.draw(myGdxGame.batch);
-        }
-        if (MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel() || MemoryManager.loadKeyboardLevel() == 5){
+
+
+        KInfoTextView1.draw(myGdxGame.batch);
+        KInfoTextView2.draw(myGdxGame.batch);
+        KInfoTextView3.draw(myGdxGame.batch);
+        KInfoTextView4.draw(myGdxGame.batch);
+
+        if (MemoryManager.loadCoins() >= KNeedToPay && MemoryManager.loadComputerLevel() > MemoryManager.loadKeyboardLevel()){
             myGdxGame.shopUpgradeButton2.draw(myGdxGame.batch);
         } else {
             myGdxGame.shopUpgradeButtonLocked2.draw(myGdxGame.batch);
         }
-        if (MemoryManager.loadKeyboardLevel() == 5){
+        if (MemoryManager.loadKeyboardLevel() == 20){
             myGdxGame.shopUpgradeButtonLocked2.draw(myGdxGame.batch);
             maxTextView2.draw(myGdxGame.batch);
         } else {
-            myGdxGame.coin2.draw(myGdxGame.batch);
-
             KCostTextView.draw(myGdxGame.batch);
         }
 
@@ -574,40 +477,56 @@ public class ShopScreen extends ScreenAdapter {
         CInfoTextView3.draw(myGdxGame.batch);
         CInfoTextView4.draw(myGdxGame.batch);
         CInfoTextView5.draw(myGdxGame.batch);
-        if (MemoryManager.loadComputerLevel() == 1) {
-            CInfoTextView6.draw(myGdxGame.batch);
-            CInfoTextView7.draw(myGdxGame.batch);
-            CInfoTextView8.draw(myGdxGame.batch);
-            CInfoTextView9.draw(myGdxGame.batch);
-        }
+
         if (MemoryManager.loadComputerLevel() == 4) {
             CInfoTextView6.draw(myGdxGame.batch);
             CInfoTextView7.draw(myGdxGame.batch);
             CInfoTextView8.draw(myGdxGame.batch);
+            CInfoTextView9.draw(myGdxGame.batch);
+        }else if (MemoryManager.loadComputerLevel() == 9) {
+            CInfoTextView6.draw(myGdxGame.batch);
+            CInfoTextView7.draw(myGdxGame.batch);
+            CInfoTextView8.draw(myGdxGame.batch);
             CInfoTextView10.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadComputerLevel() == 14) {
+            CInfoTextView6.draw(myGdxGame.batch);
+            CInfoTextView7.draw(myGdxGame.batch);
+            CInfoTextView8.draw(myGdxGame.batch);
+            CInfoTextView11.draw(myGdxGame.batch);
+        }else if (MemoryManager.loadComputerLevel() == 19) {
+            CInfoTextView6.draw(myGdxGame.batch);
+            CInfoTextView7.draw(myGdxGame.batch);
+            CInfoTextView8.draw(myGdxGame.batch);
+            CInfoTextView12.draw(myGdxGame.batch);
         }
 
-        if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadPlayerLevel() >= 3){
+
+        if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() >= 3){
             myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
-        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 1 && MemoryManager.loadComputerLevel() < 4) {
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() < 4) {
             myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
-        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() >= 8) {
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 4 && MemoryManager.loadComputerLevel() < 9) {
             myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
-        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 4) {
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 9 && MemoryManager.loadPlayerLevel() >= 6) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 9 && MemoryManager.loadComputerLevel() < 14) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 14 && MemoryManager.loadPlayerLevel() >= 8) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        }else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 14 && MemoryManager.loadComputerLevel() < 19) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        }else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 19 && MemoryManager.loadPlayerLevel() == 10) {
             myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
         } else {
             myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
         }
-        if (MemoryManager.loadComputerLevel() == 5){
+        if (MemoryManager.loadComputerLevel() == 20){
             myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
             maxTextView3.draw(myGdxGame.batch);
         } else {
-            myGdxGame.coin3.draw(myGdxGame.batch);
-
             CCostTextView.draw(myGdxGame.batch);
         }
         waterMark.draw(myGdxGame.batch);
-
         myGdxGame.batch.end();
     }
     @Override
