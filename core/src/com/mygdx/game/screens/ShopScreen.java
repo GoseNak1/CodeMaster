@@ -130,38 +130,38 @@ public class ShopScreen extends ScreenAdapter {
     public void show(){
         switch (MemoryManager.loadKeyboardLevel()){
             case 1:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard1");
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
                 KNeedToPay = 300;
                 KCostTextView.setText(""+ KNeedToPay);
                 KCoins = 20;
                 KInfoTextView2.setText(""+ KCoins);
                 break;
             case 2:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard2");
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
                 KNeedToPay = 500;
                 KCostTextView.setText(""+ KNeedToPay);
                 KCoins = 30;
                 KInfoTextView2.setText(""+ KCoins);
                 break;
             case 3:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard3");
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
                 KNeedToPay = 1000;
                 KCostTextView.setText(""+ KNeedToPay);
                 KCoins = 40;
                 KInfoTextView2.setText(""+ KCoins);
                 break;
             case 4:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard4");
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
                 KNeedToPay = 1500;
                 KCostTextView.setText(""+ KNeedToPay);
                 KCoins = 50;
                 KInfoTextView2.setText(""+ KCoins);
                 break;
             case 5:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard5");
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
                 break;
             default:
-                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard1");
+                myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
                 KNeedToPay = 300;
                 KCostTextView.setText(""+ KNeedToPay);
                 KCoins = 20;
@@ -169,60 +169,60 @@ public class ShopScreen extends ScreenAdapter {
         }
         switch (MemoryManager.loadComputerLevel()){
             case 1:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                 CNeedToPay = 600;
                 CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 2:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc2");
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
                 CNeedToPay = 1000;
                 CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 3:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc3");
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
                 CNeedToPay = 2000;
                 CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 4:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc4");
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
                 CNeedToPay = 3000;
                 CCostTextView.setText(""+ CNeedToPay);
                 break;
             case 5:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc5");
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
                 break;
             default:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                 CNeedToPay = 600;
                 CCostTextView.setText(""+ CNeedToPay);
                 break;
         }
         switch (MemoryManager.loadMonitorLevel()){
             case 1:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor1");
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
                 MNeedToPay = 300;
                 MCostTextView.setText(""+ MNeedToPay);
                 break;
             case 2:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor2");
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor2");
                 MNeedToPay = 500;
                 MCostTextView.setText(""+ MNeedToPay);
                 break;
             case 3:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor3");
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor3");
                 MNeedToPay = 1000;
                 MCostTextView.setText(""+ MNeedToPay);
                 break;
             case 4:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor4");
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor4");
                 MNeedToPay = 1500;
                 MCostTextView.setText(""+ MNeedToPay);
                 break;
             case 5:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor5");
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor5");
                 break;
             default:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor1");
+                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
                 MNeedToPay = 300;
                 MCostTextView.setText(""+ MNeedToPay);
                 break;
@@ -304,30 +304,30 @@ public class ShopScreen extends ScreenAdapter {
                 MonitorView.levelUp();
                 switch (MemoryManager.loadMonitorLevel()){
                     case 1:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor1");
+                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
                         MNeedToPay = 300;
                         MCostTextView.setText(""+ MNeedToPay);
                         break;
                     case 2:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor2");
+                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor2");
                         MNeedToPay = 500;
                         MCostTextView.setText(""+ MNeedToPay);
                         break;
                     case 3:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor3");
+                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor3");
                         MNeedToPay = 1000;
                         MCostTextView.setText(""+ MNeedToPay);
                         break;
                     case 4:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor4");
+                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor4");
                         MNeedToPay = 1500;
                         MCostTextView.setText(""+ MNeedToPay);
                         break;
                     case 5:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor5");
+                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor5");
                         break;
                     default:
-                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("monitor/shop/monitor1");
+                        myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
                         MNeedToPay = 300;
                         MCostTextView.setText(""+ MNeedToPay);
                 }
@@ -343,37 +343,37 @@ public class ShopScreen extends ScreenAdapter {
                 KeyboardView.levelUp();
                 switch (MemoryManager.loadKeyboardLevel()){
                     case 1:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard1");
+                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
                         KNeedToPay = 300;
                         KCostTextView.setText(""+ KNeedToPay);
                         KCoins = 20;
                         KInfoTextView2.setText(""+ KCoins);
                         break;
                     case 2:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard2");
+                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
                         KNeedToPay = 500;
                         KCostTextView.setText(""+ KNeedToPay);
                         KCoins = 30;
                         KInfoTextView2.setText(""+ KCoins);
                         break;
                     case 3:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard3");
+                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
                         KNeedToPay = 1000;
                         KCostTextView.setText(""+ KNeedToPay);
                         KCoins = 40;
                         KInfoTextView2.setText(""+ KCoins);
                         break;
                     case 4:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard4");
+                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
                         KNeedToPay = 1500;
                         KCostTextView.setText(""+ KNeedToPay);
                         KCoins = 50;
                         KInfoTextView2.setText(""+ KCoins);
                         break;
                     case 5:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard5");
+                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
                     default:
-                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("keyboard/Shop/keyboard1");
+                        myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
                         KNeedToPay = 300;
                         KCostTextView.setText(""+ KNeedToPay);
                         KCoins = 20;
@@ -391,30 +391,30 @@ public class ShopScreen extends ScreenAdapter {
                 ComputerView.levelUp();
                 switch (MemoryManager.loadComputerLevel()){
                     case 1:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                         CNeedToPay = 600;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 2:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc2");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
                         CNeedToPay = 1000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 3:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc3");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
                         CNeedToPay = 2000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 4:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc4");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
                         CNeedToPay = 3000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 5:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc5");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
                         break;
                     default:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                         CNeedToPay = 600;
                         CCostTextView.setText(""+ CNeedToPay);
                 }
@@ -428,30 +428,30 @@ public class ShopScreen extends ScreenAdapter {
                 ComputerView.levelUp();
                 switch (MemoryManager.loadComputerLevel()){
                     case 1:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                         CNeedToPay = 600;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 2:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc2");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
                         CNeedToPay = 1000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 3:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc3");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
                         CNeedToPay = 2000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 4:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc4");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
                         CNeedToPay = 3000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 5:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc5");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
                         break;
                     default:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                         CNeedToPay = 600;
                         CCostTextView.setText(""+ CNeedToPay);
                 }
@@ -465,30 +465,30 @@ public class ShopScreen extends ScreenAdapter {
                 ComputerView.levelUp();
                 switch (MemoryManager.loadComputerLevel()){
                     case 1:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                         CNeedToPay = 600;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 2:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc2");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
                         CNeedToPay = 1000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 3:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc3");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
                         CNeedToPay = 2000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 4:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc4");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
                         CNeedToPay = 3000;
                         CCostTextView.setText(""+ CNeedToPay);
                         break;
                     case 5:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc5");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
                         break;
                     default:
-                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("PC/Shop/pc1");
+                        myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
                         CNeedToPay = 600;
                         CCostTextView.setText(""+ CNeedToPay);
                 }
@@ -535,6 +535,7 @@ public class ShopScreen extends ScreenAdapter {
             myGdxGame.shopUpgradeButtonLocked1.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadMonitorLevel() == 5){
+            myGdxGame.shopUpgradeButtonLocked1.draw(myGdxGame.batch);
             maxTextView1.draw(myGdxGame.batch);
         } else {
             myGdxGame.coin1.draw(myGdxGame.batch);
@@ -557,6 +558,7 @@ public class ShopScreen extends ScreenAdapter {
             myGdxGame.shopUpgradeButtonLocked2.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadKeyboardLevel() == 5){
+            myGdxGame.shopUpgradeButtonLocked2.draw(myGdxGame.batch);
             maxTextView2.draw(myGdxGame.batch);
         } else {
             myGdxGame.coin2.draw(myGdxGame.batch);
@@ -584,16 +586,20 @@ public class ShopScreen extends ScreenAdapter {
             CInfoTextView8.draw(myGdxGame.batch);
             CInfoTextView10.draw(myGdxGame.batch);
         }
-        if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadPlayerLevel() < 3){
-            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
-        } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() < 8){
-            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
-        } else if (MemoryManager.loadCoins() < CNeedToPay && MemoryManager.loadComputerLevel() > 1 && MemoryManager.loadComputerLevel() < 4){
-            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
-        } else {
+
+        if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 1 && MemoryManager.loadPlayerLevel() >= 3){
             myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 1 && MemoryManager.loadComputerLevel() < 4) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() == 4 && MemoryManager.loadPlayerLevel() >= 8) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        } else if (MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadComputerLevel() > 4) {
+            myGdxGame.shopUpgradeButton3.draw(myGdxGame.batch);
+        } else {
+            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
         }
         if (MemoryManager.loadComputerLevel() == 5){
+            myGdxGame.shopUpgradeButtonLocked3.draw(myGdxGame.batch);
             maxTextView3.draw(myGdxGame.batch);
         } else {
             myGdxGame.coin3.draw(myGdxGame.batch);

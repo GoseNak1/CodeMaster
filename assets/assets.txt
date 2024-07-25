@@ -1,5 +1,5 @@
 assets-0.png
-size: 2045, 2035
+size: 2043, 2031
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -10,441 +10,441 @@ Background
   orig: 720, 1560
   offset: 0, 0
   index: -1
-keyboard/Main screen/keyboard1
+banner
   rotate: false
-  xy: 459, 1563
+  xy: 723, 1
+  size: 990, 540
+  orig: 990, 540
+  offset: 0, 0
+  index: -1
+Gold banner
+  rotate: false
+  xy: 723, 543
+  size: 990, 540
+  orig: 990, 540
+  offset: 0, 0
+  index: -1
+Main screen/keyboard1
+  rotate: false
+  xy: 1, 1563
   size: 720, 467
   orig: 720, 467
   offset: 0, 0
   index: -1
-keyboard/Shop/keyboard1
-  rotate: true
-  xy: 1805, 856
-  size: 539, 239
-  orig: 640, 360
-  offset: 53, 55
-  index: -1
-monitor/monitor21
+Main screen/monitor31
   rotate: false
-  xy: 1786, 1684
-  size: 251, 260
+  xy: 1654, 1627
+  size: 251, 252
   orig: 251, 306
   offset: 0, 0
   index: -1
-monitor/monitor22
+Ok button
   rotate: false
-  xy: 1181, 1762
-  size: 251, 260
-  orig: 251, 306
+  xy: 723, 1085
+  size: 990, 540
+  orig: 990, 540
   offset: 0, 0
   index: -1
-monitor/shop/monitor2
-  rotate: false
-  xy: 1589, 1762
-  size: 167, 130
-  orig: 320, 180
-  offset: 70, 21
-  index: -1
-monitor/shop/monitor3
-  rotate: false
-  xy: 1589, 1894
-  size: 159, 128
-  orig: 320, 180
-  offset: 83, 23
-  index: -1
-monitor/shop/monitor4
+red button
   rotate: true
-  xy: 1434, 1762
-  size: 184, 153
-  orig: 320, 180
-  offset: 69, 13
-  index: -1
-monitor/shop/monitor5
-  rotate: true
-  xy: 723, 1311
-  size: 246, 138
-  orig: 320, 180
-  offset: 36, 22
-  index: -1
-PC/Main screen/pc2
-  rotate: true
-  xy: 1193, 1304
-  size: 456, 591
-  orig: 456, 695
-  offset: 0, 0
-  index: -1
-PC/Main screen/pc3
-  rotate: false
-  xy: 1, 1563
-  size: 456, 471
-  orig: 456, 695
-  offset: 0, 102
-  index: -1
-PC/Main screen/pc4
-  rotate: false
-  xy: 723, 692
-  size: 456, 617
-  orig: 456, 695
-  offset: 0, 0
-  index: -1
-PC/Main screen/pc5
-  rotate: false
-  xy: 723, 1
-  size: 456, 689
-  orig: 456, 695
-  offset: 0, 0
-  index: -1
-PC/Shop/pc1
-  rotate: false
-  xy: 1032, 1311
-  size: 159, 245
-  orig: 270, 270
-  offset: 48, 9
-  index: -1
-PC/Shop/pc3
-  rotate: false
-  xy: 863, 1311
-  size: 167, 245
-  orig: 270, 270
-  offset: 56, 8
-  index: -1
-PC/Shop/pc4
-  rotate: true
-  xy: 1786, 1397
-  size: 144, 256
-  orig: 270, 270
-  offset: 64, 8
-  index: -1
-PC/Shop/pc5
-  rotate: true
-  xy: 1786, 1543
-  size: 139, 253
-  orig: 270, 270
-  offset: 66, 12
-  index: -1
-red_button
-  rotate: false
-  xy: 1181, 527
+  xy: 1715, 1
   size: 789, 327
   orig: 990, 540
   offset: 130, 120
   index: -1
-shop_button_locked
-  rotate: false
-  xy: 1181, 1
+shop button
+  rotate: true
+  xy: 1715, 792
   size: 828, 261
   orig: 990, 540
   offset: 75, 130
   index: -1
-upgrade_effect
+Shop/monitor2
   rotate: true
-  xy: 1181, 856
-  size: 446, 622
-  orig: 1080, 1080
-  offset: 327, 289
+  xy: 1907, 1622
+  size: 167, 130
+  orig: 320, 180
+  offset: 70, 21
   index: -1
-upgrade_shop_button
+Shop/monitor5
   rotate: false
-  xy: 1181, 264
-  size: 828, 261
-  orig: 990, 540
-  offset: 75, 130
+  xy: 1654, 1881
+  size: 246, 138
+  orig: 320, 180
+  offset: 36, 22
   index: -1
-
-assets-1.png
-size: 2019, 2046
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-banners/banner
+Show coins
   rotate: false
-  xy: 1, 1
-  size: 990, 540
-  orig: 990, 540
-  offset: 0, 0
-  index: -1
-banners/coins_image
-  rotate: true
-  xy: 1, 543
+  xy: 723, 1627
   size: 929, 391
   orig: 990, 540
   offset: 19, 88
   index: -1
-banners/Gold banner
+
+assets-1.png
+size: 1806, 1730
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+backbutton
   rotate: false
-  xy: 993, 1
-  size: 990, 540
+  xy: 1265, 1
+  size: 540, 540
+  orig: 540, 540
+  offset: 0, 0
+  index: -1
+hint
+  rotate: false
+  xy: 1055, 543
+  size: 505, 403
   orig: 990, 540
-  offset: 0, 0
+  offset: 241, 47
   index: -1
-keyboard/Main screen/keyboard2
+Main screen/keyboard4
   rotate: true
-  xy: 734, 1325
+  xy: 1, 783
   size: 720, 467
   orig: 720, 467
   offset: 0, 0
   index: -1
-keyboard/Main screen/keyboard3
-  rotate: true
-  xy: 1203, 1325
+Main screen/keyboard5
+  rotate: false
+  xy: 543, 1
   size: 720, 467
   orig: 720, 467
   offset: 0, 0
   index: -1
-monitor/monitor41
+Main screen/monitor11
   rotate: true
-  xy: 1672, 1325
+  xy: 1562, 1134
+  size: 251, 235
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor12
+  rotate: true
+  xy: 1557, 1387
+  size: 251, 235
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor23
+  rotate: true
+  xy: 1300, 948
+  size: 251, 260
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor42
+  rotate: false
+  xy: 928, 980
   size: 251, 272
   orig: 251, 306
   offset: 0, 0
   index: -1
-monitor/monitor42
-  rotate: true
-  xy: 1672, 1578
+Main screen/monitor43
+  rotate: false
+  xy: 1300, 1201
   size: 251, 272
   orig: 251, 306
   offset: 0, 0
   index: -1
-monitor/shop/monitor1
+Main screen/monitor51
   rotate: true
-  xy: 1672, 1831
-  size: 174, 165
-  orig: 320, 180
-  offset: 71, 6
+  xy: 1300, 1475
+  size: 251, 255
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/pc3
+  rotate: false
+  xy: 470, 980
+  size: 456, 471
+  orig: 456, 695
+  offset: 0, 102
   index: -1
 Ms upgrade
   rotate: false
-  xy: 394, 543
+  xy: 1, 1
   size: 540, 780
   orig: 540, 780
   offset: 0, 0
   index: -1
+shop buttonLocked
+  rotate: false
+  xy: 470, 1453
+  size: 828, 261
+  orig: 990, 540
+  offset: 75, 130
+  index: -1
+Shop/keyboard3
+  rotate: true
+  xy: 1562, 543
+  size: 589, 217
+  orig: 640, 360
+  offset: 24, 69
+  index: -1
+Shop/monitor3
+  rotate: true
+  xy: 316, 1505
+  size: 159, 128
+  orig: 320, 180
+  offset: 83, 23
+  index: -1
+Shop/pc1
+  rotate: true
+  xy: 928, 1254
+  size: 159, 245
+  orig: 270, 270
+  offset: 48, 9
+  index: -1
+shopbutton
+  rotate: true
+  xy: 543, 470
+  size: 508, 510
+  orig: 540, 540
+  offset: 11, 17
+  index: -1
+Upgrase effect
+  rotate: true
+  xy: 1, 1505
+  size: 224, 313
+  orig: 540, 540
+  offset: 163, 144
+  index: -1
+
+assets-2.png
+size: 1910, 1750
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+exitgame
+  rotate: false
+  xy: 543, 928
+  size: 540, 540
+  orig: 540, 540
+  offset: 0, 0
+  index: -1
+Main screen/keyboard2
+  rotate: false
+  xy: 570, 1
+  size: 720, 467
+  orig: 720, 467
+  offset: 0, 0
+  index: -1
+Main screen/monitor21
+  rotate: false
+  xy: 823, 1470
+  size: 251, 260
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor22
+  rotate: false
+  xy: 1076, 1470
+  size: 251, 260
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor32
+  rotate: false
+  xy: 1329, 1382
+  size: 251, 252
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor33
+  rotate: true
+  xy: 1582, 1382
+  size: 251, 252
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/monitor41
+  rotate: false
+  xy: 570, 1470
+  size: 251, 272
+  orig: 251, 306
+  offset: 0, 0
+  index: -1
+Main screen/pc4
+  rotate: true
+  xy: 1292, 1
+  size: 456, 617
+  orig: 456, 695
+  offset: 0, 0
+  index: -1
+Main screen/pc5
+  rotate: true
+  xy: 570, 470
+  size: 456, 689
+  orig: 456, 695
+  offset: 0, 0
+  index: -1
 msupgrade active
   rotate: false
-  xy: 936, 543
+  xy: 1, 1
   size: 540, 780
   orig: 540, 780
   offset: 0, 0
   index: -1
 msupgrade max
   rotate: false
-  xy: 1478, 543
-  size: 540, 780
-  orig: 540, 780
-  offset: 0, 0
-  index: -1
-PC/Main screen/pc1
-  rotate: false
-  xy: 276, 1474
-  size: 456, 554
-  orig: 456, 695
-  offset: 0, 0
-  index: -1
-price
-  rotate: true
-  xy: 1, 1474
-  size: 562, 273
-  orig: 780, 540
-  offset: 110, 120
-  index: -1
-Price
-  rotate: true
-  xy: 1, 1474
-  size: 562, 273
-  orig: 780, 540
-  offset: 110, 120
-  index: -1
-shop_image
-  rotate: true
-  xy: 1, 1474
-  size: 562, 273
-  orig: 780, 540
-  offset: 110, 120
-  index: -1
-
-assets-2.png
-size: 1962, 1990
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-backbutton
-  rotate: false
-  xy: 543, 939
-  size: 540, 540
-  orig: 540, 540
-  offset: 0, 0
-  index: -1
-Coin
-  rotate: true
-  xy: 1, 1565
-  size: 398, 391
-  orig: 458, 432
-  offset: 19, 30
-  index: -1
-exitgame
-  rotate: false
-  xy: 1085, 939
-  size: 540, 540
-  orig: 540, 540
-  offset: 0, 0
-  index: -1
-keyboard/Main screen/keyboard4
-  rotate: false
-  xy: 650, 1
-  size: 720, 467
-  orig: 720, 467
-  offset: 0, 0
-  index: -1
-keyboard/Main screen/keyboard5
-  rotate: false
-  xy: 650, 470
-  size: 720, 467
-  orig: 720, 467
-  offset: 0, 0
-  index: -1
-keyboard/Shop/keyboard2
-  rotate: false
-  xy: 1372, 220
-  size: 550, 224
-  orig: 640, 360
-  offset: 45, 59
-  index: -1
-keyboard/Shop/keyboard3
-  rotate: false
-  xy: 1372, 1
-  size: 589, 217
-  orig: 640, 360
-  offset: 24, 69
-  index: -1
-keyboard/Shop/keyboard4
-  rotate: false
-  xy: 1372, 446
-  size: 545, 224
-  orig: 640, 360
-  offset: 46, 63
-  index: -1
-keyboard/Shop/keyboard5
-  rotate: true
-  xy: 1162, 1481
-  size: 497, 270
-  orig: 640, 360
-  offset: 79, 35
-  index: -1
-monitor/monitor23
-  rotate: false
-  xy: 1372, 672
-  size: 251, 260
-  orig: 251, 306
-  offset: 0, 0
-  index: -1
-monitor/monitor43
-  rotate: false
-  xy: 394, 1565
-  size: 251, 272
-  orig: 251, 306
-  offset: 0, 0
-  index: -1
-monitor/monitor51
-  rotate: false
-  xy: 1625, 672
-  size: 251, 255
-  orig: 251, 306
-  offset: 0, 0
-  index: -1
-monitor/monitor52
-  rotate: true
-  xy: 1627, 929
-  size: 251, 255
-  orig: 251, 306
-  offset: 0, 0
-  index: -1
-monitor/monitor53
-  rotate: false
-  xy: 1627, 1182
-  size: 251, 255
-  orig: 251, 306
-  offset: 0, 0
-  index: -1
-PC/Shop/pc2
-  rotate: true
-  xy: 394, 1839
-  size: 150, 254
-  orig: 270, 270
-  offset: 66, 5
-  index: -1
-Setting_background
-  rotate: false
-  xy: 1, 1
-  size: 540, 780
-  orig: 540, 780
-  offset: 0, 0
-  index: -1
-settings_button
-  rotate: true
-  xy: 1434, 1481
-  size: 494, 491
-  orig: 540, 540
-  offset: 16, 24
-  index: -1
-shop_background
-  rotate: false
   xy: 1, 783
   size: 540, 780
   orig: 540, 780
   offset: 0, 0
   index: -1
-shop_button
+Price
+  rotate: false
+  xy: 1292, 459
+  size: 562, 273
+  orig: 780, 540
+  offset: 110, 120
+  index: -1
+Settingsbutton
   rotate: true
-  xy: 650, 1481
-  size: 508, 510
+  xy: 1326, 886
+  size: 494, 491
   orig: 540, 540
-  offset: 11, 17
+  offset: 16, 24
+  index: -1
+Shop/keyboard1
+  rotate: true
+  xy: 1085, 928
+  size: 539, 239
+  orig: 640, 360
+  offset: 53, 55
+  index: -1
+Shop/monitor1
+  rotate: true
+  xy: 156, 1565
+  size: 174, 165
+  orig: 320, 180
+  offset: 71, 6
+  index: -1
+Shop/monitor4
+  rotate: true
+  xy: 1, 1565
+  size: 184, 153
+  orig: 320, 180
+  offset: 69, 13
+  index: -1
+Shop/pc2
+  rotate: true
+  xy: 1261, 734
+  size: 150, 254
+  orig: 270, 270
+  offset: 66, 5
+  index: -1
+Shop/pc3
+  rotate: true
+  xy: 323, 1565
+  size: 167, 245
+  orig: 270, 270
+  offset: 56, 8
+  index: -1
+Shop/pc4
+  rotate: true
+  xy: 1517, 734
+  size: 144, 256
+  orig: 270, 270
+  offset: 64, 8
   index: -1
 
 assets-3.png
-size: 253, 1473
+size: 1689, 1564
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-monitor/monitor11
+Coin
   rotate: false
-  xy: 1, 763
+  xy: 1265, 1
+  size: 398, 391
+  orig: 458, 432
+  offset: 19, 30
+  index: -1
+Main screen/keyboard3
+  rotate: false
+  xy: 543, 1
+  size: 720, 467
+  orig: 720, 467
+  offset: 0, 0
+  index: -1
+Main screen/monitor13
+  rotate: true
+  xy: 1453, 394
   size: 251, 235
   orig: 251, 306
   offset: 0, 0
   index: -1
-monitor/monitor12
+Main screen/monitor52
   rotate: false
-  xy: 1, 1000
-  size: 251, 235
+  xy: 1371, 1017
+  size: 251, 255
   orig: 251, 306
   offset: 0, 0
   index: -1
-monitor/monitor13
+Main screen/monitor53
   rotate: false
-  xy: 1, 1237
-  size: 251, 235
+  xy: 1371, 1274
+  size: 251, 255
   orig: 251, 306
   offset: 0, 0
   index: -1
-monitor/monitor31
+Main screen/pc1
+  rotate: true
+  xy: 543, 1063
+  size: 456, 554
+  orig: 456, 695
+  offset: 0, 0
+  index: -1
+Main screen/pc2
+  rotate: false
+  xy: 543, 470
+  size: 456, 591
+  orig: 456, 695
+  offset: 0, 0
+  index: -1
+Setting background
   rotate: false
   xy: 1, 1
-  size: 251, 252
-  orig: 251, 306
+  size: 540, 780
+  orig: 540, 780
   offset: 0, 0
   index: -1
-monitor/monitor32
-  rotate: false
-  xy: 1, 255
-  size: 251, 252
-  orig: 251, 306
-  offset: 0, 0
+Shop/keyboard2
+  rotate: true
+  xy: 1001, 470
+  size: 550, 224
+  orig: 640, 360
+  offset: 45, 59
   index: -1
-monitor/monitor33
+Shop/keyboard4
+  rotate: true
+  xy: 1227, 470
+  size: 545, 224
+  orig: 640, 360
+  offset: 46, 63
+  index: -1
+Shop/keyboard5
+  rotate: true
+  xy: 1099, 1022
+  size: 497, 270
+  orig: 640, 360
+  offset: 79, 35
+  index: -1
+Shop/pc5
   rotate: false
-  xy: 1, 509
-  size: 251, 252
-  orig: 251, 306
+  xy: 1453, 647
+  size: 139, 253
+  orig: 270, 270
+  offset: 66, 12
+  index: -1
+Shopbackground
+  rotate: false
+  xy: 1, 783
+  size: 540, 780
+  orig: 540, 780
   offset: 0, 0
   index: -1

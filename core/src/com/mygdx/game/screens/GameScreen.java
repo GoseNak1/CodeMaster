@@ -140,12 +140,12 @@ public class GameScreen extends ScreenAdapter {
         MSeconds = MemoryManager.loadMSeconds();
 
         if(goldBanner){
-            myGdxGame.banner = myGdxGame.textureAtlas.createSprite("banners/Gold banner");
+            myGdxGame.banner = myGdxGame.textureAtlas.createSprite("Gold banner");
 
             myGdxGame.banner.setPosition(100,1250);
             myGdxGame.banner.setSize(800,400);
         }else {
-            myGdxGame.banner = myGdxGame.textureAtlas.createSprite("banners/banner");
+            myGdxGame.banner = myGdxGame.textureAtlas.createSprite("banner");
 
             myGdxGame.banner.setPosition(100,1250);
             myGdxGame.banner.setSize(800,400);
@@ -170,34 +170,34 @@ public class GameScreen extends ScreenAdapter {
         }
         switch (MemoryManager.loadMonitorLevel()){
             case 1:
-                animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor11");
-                animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor12");
-                animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor13");
+                animateTexture1 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor11");
+                animateTexture2 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor12");
+                animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor13");
                 break;
             case 2:
-                animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor21");
-                animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor22");
-                animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor23");
+                animateTexture1 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor21");
+                animateTexture2 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor22");
+                animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor23");
                 break;
             case 3:
-                animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor31");
-                animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor32");
-                animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor33");
+                animateTexture1 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor31");
+                animateTexture2 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor32");
+                animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor33");
                 break;
             case 4:
-                animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor41");
-                animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor42");
-                animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor43");
+                animateTexture1 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor41");
+                animateTexture2 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor42");
+                animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor43");
                 break;
             case 5:
-                animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor51");
-                animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor52");
-                animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor53");
+                animateTexture1 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor51");
+                animateTexture2 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor52");
+                animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor53");
                 break;
             default:
-                animateTexture1 = MyGdxGame.textureAtlas.createSprite("monitor/monitor11");
-                animateTexture2 = MyGdxGame.textureAtlas.createSprite("monitor/monitor12");
-                animateTexture3 = MyGdxGame.textureAtlas.createSprite("monitor/monitor13");
+                animateTexture1 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor11");
+                animateTexture2 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor12");
+                animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor13");
         }
         animateTexture1.setPosition(220, 550);
         animateTexture1.setSize(500, 700);
@@ -216,37 +216,37 @@ public class GameScreen extends ScreenAdapter {
 
         switch (KLevel){
             case 1:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("Main screen/keyboard1");
                 myGdxGame.keyBoard.setPosition(-65,220);
                 myGdxGame.keyBoard.setSize(850,550);
 
                 break;
             case 2:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard2");
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("Main screen/keyboard2");
                 myGdxGame.keyBoard.setPosition(-65,220);
                 myGdxGame.keyBoard.setSize(850,550);
 
                 break;
             case 3:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard3");
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("Main screen/keyboard3");
                 myGdxGame.keyBoard.setPosition(-65,220);
                 myGdxGame.keyBoard.setSize(850,550);
 
                 break;
             case 4:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard4");
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("Main screen/keyboard4");
                 myGdxGame.keyBoard.setPosition(-65,220);
                 myGdxGame.keyBoard.setSize(850,550);
 
                 break;
             case 5:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard5");
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("Main screen/keyboard5");
                 myGdxGame.keyBoard.setPosition(-65,220);
                 myGdxGame.keyBoard.setSize(850,550);
 
                 break;
             default:
-                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("keyboard/Main screen/keyboard1");
+                myGdxGame.keyBoard = myGdxGame.textureAtlas.createSprite("Main screen/keyboard1");
                 myGdxGame.keyBoard.setPosition(-65,220);
                 myGdxGame.keyBoard.setSize(850,550);
 
@@ -254,32 +254,32 @@ public class GameScreen extends ScreenAdapter {
         }
         switch (CLevel){
             case 1:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("Main screen/pc1");
                 myGdxGame.computer.setPosition(-39,500);
                 myGdxGame.computer.setSize(500,800);
                 break;
             case 2:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc2");
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("Main screen/pc2");
                 myGdxGame.computer.setPosition(-39,500);
                 myGdxGame.computer.setSize(500,800);
                 break;
             case 3:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc3");
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("Main screen/pc3");
                 myGdxGame.computer.setPosition(-39,500);
                 myGdxGame.computer.setSize(500,800);
                 break;
             case 4:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc4");
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("Main screen/pc4");
                 myGdxGame.computer.setPosition(-39,500);
                 myGdxGame.computer.setSize(500,800);
                 break;
             case 5:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc5");
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("Main screen/pc5");
                 myGdxGame.computer.setPosition(-39,500);
                 myGdxGame.computer.setSize(500,800);
                 break;
             default:
-                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("PC/Main screen/pc1");
+                myGdxGame.computer = myGdxGame.textureAtlas.createSprite("Main screen/pc1");
                 myGdxGame.computer.setPosition(-39,500);
                 myGdxGame.computer.setSize(500,800);
                 break;
