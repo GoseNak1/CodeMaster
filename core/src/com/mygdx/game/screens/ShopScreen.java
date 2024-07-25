@@ -5,14 +5,12 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.mygdx.game.GameResources;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.objects.ComputerView;
 import com.mygdx.game.objects.KeyboardView;
 import com.mygdx.game.objects.MonitorView;
 import com.mygdx.game.view.ButtonView;
-import com.mygdx.game.view.ImageView;
 import com.mygdx.game.view.TextView;
 
 public class ShopScreen extends ScreenAdapter {
@@ -69,7 +67,6 @@ public class ShopScreen extends ScreenAdapter {
     int MNeedToPay;
     int KNeedToPay;
     int CNeedToPay;
-    int KCoins;
 
     TextView waterMark;
 
@@ -79,7 +76,7 @@ public class ShopScreen extends ScreenAdapter {
         waterMark = new TextView(myGdxGame.waterMark,0,0,"kyber alliance");
 
         titleTextView = new TextView(myGdxGame.fontBlackBig, 250, 1453, "Shop");
-        coinsTextView = new TextView(myGdxGame.fontWhiteSmall, 340, 1215);
+        coinsTextView = new TextView(myGdxGame.fontWhiteSmall, 340, 1235);
         monitorTextView = new TextView(myGdxGame.fontBlack, 235, 1110, "Monitor");
         keyboardTextView = new TextView(myGdxGame.fontBlack, 210, 840, "Keyboard");
         computerTextView = new TextView(myGdxGame.fontBlack, 210, 535, "Computer");
@@ -134,74 +131,38 @@ public class ShopScreen extends ScreenAdapter {
     }
     @Override
     public void show(){
-        System.out.println(MemoryManager.loadKeyboardLevel());
+        if(MemoryManager.loadComputerLevel() < 5){
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
+        } else if (MemoryManager.loadComputerLevel() >= 5 && MemoryManager.loadComputerLevel() < 10) {
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
+        }else if (MemoryManager.loadComputerLevel() >= 10 && MemoryManager.loadComputerLevel() < 15){
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
+        }else if (MemoryManager.loadComputerLevel() >= 15 && MemoryManager.loadComputerLevel() < 20){
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
+        }else {
+            myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
+        }
         if(MemoryManager.loadKeyboardLevel() < 5){
             myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard1");
-            KCoins = 20;
         } else if (MemoryManager.loadKeyboardLevel() >= 5 && MemoryManager.loadKeyboardLevel() < 10) {
             myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard2");
-            KCoins = 30;
         }else if (MemoryManager.loadKeyboardLevel() >= 10 && MemoryManager.loadKeyboardLevel() < 15){
             myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard3");
-            KCoins = 40;
         }else if (MemoryManager.loadKeyboardLevel() >= 15 && MemoryManager.loadKeyboardLevel() < 20){
             myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard4");
-            KCoins = 50;
         }else {
             myGdxGame.keyBoardShop = myGdxGame.textureAtlas.createSprite("Shop/keyboard5");
-            KCoins = 60;
         }
-        KInfoTextView2.setText(""+ KCoins);
-        switch (MemoryManager.loadComputerLevel()){
-            case 1:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                break;
-            case 2:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc2");
-                break;
-            case 3:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc3");
-                break;
-            case 4:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc4");
-                break;
-            case 5:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc5");
-                break;
-            default:
-                myGdxGame.computerShop = myGdxGame.textureAtlas.createSprite("Shop/pc1");
-                break;
-        }
-        switch (MemoryManager.loadMonitorLevel()){
-            case 1:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
-                MNeedToPay = 300;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 2:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor2");
-                MNeedToPay = 500;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 3:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor3");
-                MNeedToPay = 1000;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 4:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor4");
-                MNeedToPay = 1500;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-            case 5:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor5");
-                break;
-            default:
-                myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
-                MNeedToPay = 300;
-                MCostTextView.setText(""+ MNeedToPay);
-                break;
-
+        if(MemoryManager.loadMonitorLevel() < 5){
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor1");
+        } else if (MemoryManager.loadMonitorLevel() >= 5 && MemoryManager.loadMonitorLevel() < 10) {
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor2");
+        }else if (MemoryManager.loadMonitorLevel() >= 10 && MemoryManager.loadMonitorLevel() < 15){
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor3");
+        }else if (MemoryManager.loadMonitorLevel() >= 15 && MemoryManager.loadMonitorLevel() < 20){
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor4");
+        }else {
+            myGdxGame.monitorShop = myGdxGame.textureAtlas.createSprite("Shop/monitor5");
         }
         myGdxGame.monitorShop.setPosition(40,955);
         myGdxGame.monitorShop.setSize(225, 150);
@@ -239,7 +200,7 @@ public class ShopScreen extends ScreenAdapter {
         myGdxGame.backButton.setPosition(-20, 1380);
         myGdxGame.backButton.setSize(200, 200);
 
-        myGdxGame.coinsBanner.setPosition(195, 1150);
+        myGdxGame.coinsBanner.setPosition(195, 1170);
         myGdxGame.coinsBanner.setSize(330, 150);
 
         myGdxGame.coin1.setPosition(570, 920);
