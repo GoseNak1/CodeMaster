@@ -34,6 +34,10 @@ public abstract class View implements Disposable {
     public void draw(SpriteBatch batch, int click){
 
     }
+    public void setPosition(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
 
     @Override
     public void dispose() {

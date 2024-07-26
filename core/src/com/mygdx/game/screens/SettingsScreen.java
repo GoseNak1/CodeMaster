@@ -89,7 +89,7 @@ public class SettingsScreen extends ScreenAdapter {
 
         clearSettingView1.draw(myGdxGame.batch);
         clearSettingView2.draw(myGdxGame.batch);
-        if(MemoryManager.loadPlayerLevel() >= 10 || isOld){
+        if(MemoryManager.loadComputerLevel() == 20 && MemoryManager.loadPlayerLevel() >= 20 || isOld){
             goldbanner.draw(myGdxGame.batch);
             MemoryManager.saveIsOld(true);
             isOld = MemoryManager.loadIsOld();

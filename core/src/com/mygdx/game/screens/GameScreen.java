@@ -96,9 +96,9 @@ public class GameScreen extends ScreenAdapter {
 
         needScoreView = new TextView(myGdxGame.fontWhiteSmall,600,1410);
         scoreTextView = new TextView(myGdxGame.fontWhiteSmall, 465,1410);
-        playerLevelView = new TextView(myGdxGame.fontWhite,360,1440);
+        playerLevelView = new TextView(myGdxGame.fontWhite,340,1440);
         coinsView = new TextView(myGdxGame.fontWhiteSmall,570,1285);
-        maxText = new TextView(myGdxGame.fontWhite,580,1230,"MAX!");
+        maxText = new TextView(myGdxGame.fontWhite,580,1210,"MAX!");
 
         exitButton = new ButtonView(-10,1340,200,210);
         settingsButton = new ButtonView(10, 700, 110,110);
@@ -118,8 +118,8 @@ public class GameScreen extends ScreenAdapter {
 
 
 
-        priceOfPerSecondText = new TextView(myGdxGame.fontWhiteSmall,160,58);
-        priceOfPerClickText = new TextView(myGdxGame.fontWhiteSmall,470,58);
+        priceOfPerSecondText = new TextView(myGdxGame.fontWhiteBtw,130,58);
+        priceOfPerClickText = new TextView(myGdxGame.fontWhiteBtw,450,58);
 
 
     }
@@ -133,15 +133,23 @@ public class GameScreen extends ScreenAdapter {
         goldBanner = MemoryManager.loadGoldBanner();
         score = MemoryManager.loadScore();
 
-        needScore = (playerLevel+1)*200;
+        needScore = (playerLevel+1)*110;
         coins = MemoryManager.loadCoins();
         perClick = MemoryManager.loadPerClick();
         perSecond = MemoryManager.loadPerSecond();
         perSecondLevel = perSecond/5;
-        priceOfPerSecond = (perSecondLevel)*100;
+        priceOfPerSecond = (perSecondLevel+1)*100;
         priceOfPerClick = (perClick+1)*100;
 
         MSeconds = MemoryManager.loadMSeconds();
+
+        if(playerLevel >= 1 && playerLevel < 10){
+            playerLevelView.setPosition(360,1440);
+        } else if (playerLevel == 20) {
+            playerLevelView.setPosition(340,1440);
+        } else {
+            playerLevelView.setPosition(345,1440);
+        }
 
         if(goldBanner){
             myGdxGame.banner = myGdxGame.textureAtlas.createSprite("Gold banner");
@@ -194,13 +202,13 @@ public class GameScreen extends ScreenAdapter {
             animateTexture3 = MyGdxGame.textureAtlas.createSprite("Main screen/monitor53");
         }
 
-        animateTexture1.setPosition(220, 550);
+        animateTexture1.setPosition(220, 500);
         animateTexture1.setSize(500, 700);
 
-        animateTexture2.setPosition(220, 550);
+        animateTexture2.setPosition(220, 500);
         animateTexture2.setSize(500, 700);
 
-        animateTexture3.setPosition(220, 550);
+        animateTexture3.setPosition(220, 500);
         animateTexture3.setSize(500, 700);
 
         animateArray = new Sprite[]{
@@ -254,7 +262,7 @@ public class GameScreen extends ScreenAdapter {
             case 20: MemoryManager.saveMSeconds(6000); break;
         }
 
-        myGdxGame.computer.setPosition(-39,500);
+        myGdxGame.computer.setPosition(-70,550);
         myGdxGame.computer.setSize(500,800);
 
         myGdxGame.keyBoard.setPosition(-65,220);
@@ -284,7 +292,7 @@ public class GameScreen extends ScreenAdapter {
         myGdxGame.coin2.setPosition(110,173);
         myGdxGame.coin2.setSize(55,50);
 
-        myGdxGame.coin3.setPosition(440,48);
+        myGdxGame.coin3.setPosition(535,43);
         myGdxGame.coin3.setSize(55,50);
 
         gameSession.startGame();
@@ -301,12 +309,12 @@ public class GameScreen extends ScreenAdapter {
         goldBanner = MemoryManager.loadGoldBanner();
         score = MemoryManager.loadScore();
 
-        needScore = (playerLevel+1)*200;
+        needScore = (playerLevel+1)*110;
         coins = MemoryManager.loadCoins();
         perClick = MemoryManager.loadPerClick();
         perSecond = MemoryManager.loadPerSecond();
         perSecondLevel = perSecond/5;
-        priceOfPerSecond = (perSecondLevel)*100;
+        priceOfPerSecond = (perSecondLevel+1)*100;
         priceOfPerClick = (perClick+1)*100;
         MSeconds = MemoryManager.loadMSeconds();
 
@@ -329,7 +337,7 @@ public class GameScreen extends ScreenAdapter {
         perSecondView.setText(""+ perSecond);
         perClickText.setText(""+ perClick);
         coinsView.setText(""+ coins);
-        if (playerLevel == 10){
+        if (playerLevel == 20){
             needScoreView.setText("max!");
         } else{
             needScoreView.setText(""+ needScore);
@@ -362,7 +370,7 @@ public class GameScreen extends ScreenAdapter {
                 if(coins <= 49990){
                     coins += perClick;
                 }
-                if (MemoryManager.loadPlayerLevel() < 10) {
+                if (MemoryManager.loadPlayerLevel() < 20) {
                     score += 1;
                 }
 
@@ -413,9 +421,9 @@ public class GameScreen extends ScreenAdapter {
         }else {
             myGdxGame.upgradeButton1 = myGdxGame.textureAtlas.createSprite("Ms upgrade");
         }
-//        if(coins > 50000){
-//            MemoryManager.saveCoins(50000);
-//        }
+        if(coins > 50000){
+            MemoryManager.saveCoins(50000);
+        }
         myGdxGame.upgradeButton1.setPosition(310,-100);
         myGdxGame.upgradeButton1.setSize(400,600);
 
@@ -453,12 +461,18 @@ public class GameScreen extends ScreenAdapter {
         myGdxGame.coin2.draw(myGdxGame.batch);
 
         if (perSecond != 100){
+
             myGdxGame.price2.draw(myGdxGame.batch);
             priceOfPerSecondText.draw(myGdxGame.batch);
+
+            myGdxGame.coin4.draw(myGdxGame.batch);
         }
         if (perClick != 20){
+
+
             myGdxGame.price1.draw(myGdxGame.batch);
             priceOfPerClickText.draw(myGdxGame.batch);
+            myGdxGame.coin3.draw(myGdxGame.batch);
         }
 
 

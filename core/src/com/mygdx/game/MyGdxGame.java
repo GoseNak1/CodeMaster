@@ -97,6 +97,7 @@ public class MyGdxGame extends Game {
 	public BitmapFont fontBlackAverage;
 	public BitmapFont fontRed;
 	public BitmapFont waterMark;
+	public BitmapFont fontWhiteBtw;
 
 	public AudioManager audioManager;
 
@@ -107,6 +108,8 @@ public class MyGdxGame extends Game {
 
 		Color colorS = new Color(0.14F, 0.14F, 0.14F, 0.6F);
 		Color colorWM = new Color(0, 255, 0, 0.1F);
+
+		fontWhiteBtw = FontBuilder.generate(38,Color.WHITE,GameResources.FONT_PATH);
 		fontWhiteVerySmall = FontBuilder.generate(30,Color.WHITE,GameResources.FONT_PATH);
 		fontWhiteSmall = FontBuilder.generate(50, Color.WHITE,GameResources.FONT_PATH);
 		fontWhite = FontBuilder.generate(70, Color.WHITE, GameResources.FONT_PATH);
@@ -125,7 +128,7 @@ public class MyGdxGame extends Game {
 		coin3 = textureAtlas.createSprite("Coin");
 		coin4 = textureAtlas.createSprite("Coin");
 
-		coin4.setPosition(110,48);
+		coin4.setPosition(215,43);
 		coin4.setSize(55,50);
 
 		price1 = textureAtlas.createSprite("Price");
