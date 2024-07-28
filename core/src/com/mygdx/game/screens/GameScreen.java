@@ -445,10 +445,10 @@ public class GameScreen extends ScreenAdapter {
         myGdxGame.backGround.draw(myGdxGame.batch);
 
         myGdxGame.computer.draw(myGdxGame.batch);
-        myGdxGame.keyBoard.draw(myGdxGame.batch);
+
 
         animateArray[clickForMonitor].draw(myGdxGame.batch);
-
+        myGdxGame.keyBoard.draw(myGdxGame.batch);
         myGdxGame.upgradeButton2.draw(myGdxGame.batch);
         myGdxGame.upgradeButton1.draw(myGdxGame.batch);
         perSecondView.draw(myGdxGame.batch);
