@@ -1,0 +1,26 @@
+name: Build app
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'corretto'
+
+    - name: Build APK
+      run: ./gradlew assembleRelease
+      
+    - name: Build AAB
+      run: ./gradlew bundleRelease
