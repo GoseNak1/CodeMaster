@@ -18,7 +18,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'corretto'
-
+    - name: Grant Permission
+      run: chmod -R 777 ./gradlew
     - name: Build APK
       run: ./gradlew assembleRelease
       
