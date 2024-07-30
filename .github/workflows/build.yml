@@ -13,15 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'corretto'
+        
     - name: Grant Permission
       run: chmod -R 777 ./gradlew
+      #Build APK
     - name: Build APK
       run: ./gradlew assembleRelease
-      
+      #Build AAB
     - name: Build AAB
       run: ./gradlew bundleRelease
