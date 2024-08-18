@@ -320,7 +320,7 @@ public class GameScreen extends ScreenAdapter {
 
         if(MSeconds==0) MemoryManager.saveMSeconds(5000);
 
-        if(gameSession.shouldGiveMoney() && coins <= 49990){
+        if(gameSession.shouldGiveMoney() && coins <= 50000){
             coins += perSecond;
             MemoryManager.saveCoins(coins);
         }
@@ -330,6 +330,14 @@ public class GameScreen extends ScreenAdapter {
             MemoryManager.saveScore(0);
         }
         handleInput();
+
+        if(score < 100){
+            scoreTextView.setPosition(505,1410);
+        } else if (score > 100 && score < 1000) {
+            scoreTextView.setPosition(475,1410);
+        } else if (score > 1000) {
+            scoreTextView.setPosition(465,1410);
+        }
 
 
         priceOfPerSecondText.setText(""+ priceOfPerSecond);
@@ -363,11 +371,11 @@ public class GameScreen extends ScreenAdapter {
                     if(myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.clickSound3.play();
                 }
 
-                if (counter == 10 && coins <= 49990){
+                if (counter == 10 && coins <= 50000){
                     coins += coinsFor10Click;
                     counter = 0;
                 }
-                if(coins <= 49990){
+                if(coins <= 50000){
                     coins += perClick;
                 }
                 if (MemoryManager.loadPlayerLevel() < 20) {
@@ -492,7 +500,7 @@ public class GameScreen extends ScreenAdapter {
         levelText.draw(myGdxGame.batch);
 
 
-        if(coins >= 49990){
+        if(coins >= 50000){
             maxText.draw(myGdxGame.batch);
         }
         waterMark.draw(myGdxGame.batch);
