@@ -1,35 +1,21 @@
 package com.mygdx.game;
 
-import static com.mygdx.game.GameSettings.POSITION_ITERATIONS;
 import static com.mygdx.game.GameSettings.SCREEN_HEIGHT;
 import static com.mygdx.game.GameSettings.SCREEN_WIDTH;
-import static com.mygdx.game.GameSettings.STEP_TIME;
-import static com.mygdx.game.GameSettings.VELOCITY_ITERATIONS;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.physics.box2d.Box2D;
-import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.managers.AudioManager;
-import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.screens.GameScreen;
 import com.mygdx.game.screens.SettingsScreen;
 import com.mygdx.game.screens.ShopScreen;
-
-import java.util.ArrayList;
-
-import javax.swing.Spring;
+import com.mygdx.game.screens.MakeSureResetScreen;
 
 public class MyGdxGame extends Game {
 	public static TextureAtlas textureAtlas;
@@ -76,9 +62,13 @@ public class MyGdxGame extends Game {
 	public Sprite shopUpgradeButtonLocked2;
 	public Sprite shopUpgradeButtonLocked3;
 
+	public Sprite acceptReset;
+	public Sprite declineReset;
+
 	public GameScreen gameScreen;
 	public SettingsScreen settingsScreen;
 	public ShopScreen shopScreen;
+	public MakeSureResetScreen makeSureResetScreen;
 
 	public Vector3 touch;
 
@@ -156,6 +146,8 @@ public class MyGdxGame extends Game {
 		shopUpgradeButtonLocked2 = textureAtlas.createSprite("shop buttonLocked");
 		shopUpgradeButtonLocked3 = textureAtlas.createSprite("shop buttonLocked");
 
+		acceptReset = textureAtlas.createSprite("Price");
+		declineReset = textureAtlas.createSprite("Price");
 
 
 		batch = new SpriteBatch();
@@ -167,6 +159,7 @@ public class MyGdxGame extends Game {
 		gameScreen = new GameScreen(this);
 		settingsScreen = new SettingsScreen(this);
 		shopScreen = new ShopScreen(this);
+		makeSureResetScreen = new MakeSureResetScreen(this);
 
 
 		setScreen(gameScreen);

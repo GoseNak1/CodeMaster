@@ -109,17 +109,7 @@ public class SettingsScreen extends ScreenAdapter {
             if (resetButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
 
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
-                if(MemoryManager.loadPlayerLevel() >= 10){
-                    MemoryManager.saveIsOld(true);
-                }
-                MemoryManager.saveScore(0);
-                MemoryManager.savePlayerLevel(1);
-                MemoryManager.saveCoins(0);
-                MemoryManager.savePerClick(1);
-                MemoryManager.saveMonitorLevel(1);
-                MemoryManager.saveKeyboardLevel(1);
-                MemoryManager.saveComputerLevel(1);
-                MemoryManager.savePerSecond(5);
+                myGdxGame.setScreen(myGdxGame.makeSureResetScreen);
 
             }
             if (musicSettingView.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {

@@ -109,7 +109,7 @@ public class ShopScreen extends ScreenAdapter {
         CInfoTextView9 = new TextView(myGdxGame.fontBlackSmall, 205, 340, "Level 4)");
         CInfoTextView10 = new TextView(myGdxGame.fontBlackSmall, 205, 340, "Level 8)");
         CInfoTextView11 = new TextView(myGdxGame.fontBlackSmall, 205,340, "level 13)");
-        CInfoTextView12 = new TextView(myGdxGame.fontBlackSmall, 205,340, "level 15)");
+        CInfoTextView12 = new TextView(myGdxGame.fontBlackSmall, 205,340, "level 19)");
 
 
         maxTextView1 = new TextView(myGdxGame.fontWhiteVerySmall, 470, 945, "Max level");
@@ -337,7 +337,7 @@ public class ShopScreen extends ScreenAdapter {
                 int odd = MemoryManager.loadCoins() - CNeedToPay;
                 MemoryManager.saveCoins(odd);
                 ComputerView.levelUp();
-            } else if (upgradeButton3.isHit(myGdxGame.touch.x,myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 19  && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 15) {
+            } else if (upgradeButton3.isHit(myGdxGame.touch.x,myGdxGame.touch.y) && MemoryManager.loadComputerLevel() == 19  && MemoryManager.loadCoins() >= CNeedToPay && MemoryManager.loadPlayerLevel() >= 19) {
                 if (myGdxGame.audioManager.isSoundOn) myGdxGame.audioManager.uiSound.play();
                 int odd = MemoryManager.loadCoins() - CNeedToPay;
                 MemoryManager.saveCoins(odd);
