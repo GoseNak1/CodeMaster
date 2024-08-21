@@ -143,17 +143,6 @@ public class GameScreen extends ScreenAdapter {
 
         MSeconds = MemoryManager.loadMSeconds();
 
-        if(playerLevel >= 2 && playerLevel < 10){
-            playerLevelView.setPosition(305,1440);
-        } else if (playerLevel == 20) {
-            playerLevelView.setPosition(290,1440);
-        } else if (playerLevel == 11) {
-            playerLevelView.setPosition(300,1440);
-        } else if (playerLevel == 1) {
-            playerLevelView.setPosition(315,1440);
-        } else {
-            playerLevelView.setPosition(295,1440);
-        }
         if(goldBanner){
             myGdxGame.banner = myGdxGame.textureAtlas.createSprite("Gold banner");
 
@@ -361,6 +350,17 @@ public class GameScreen extends ScreenAdapter {
 
         playerLevelView.setText(""+ playerLevel);
         scoreTextView.setText("" + score);
+        if(playerLevel >= 2 && playerLevel < 10){
+            playerLevelView.setPosition(305,1440);
+        } else if (playerLevel == 20) {
+            playerLevelView.setPosition(290,1440);
+        } else if (playerLevel == 11) {
+            playerLevelView.setPosition(300,1440);
+        } else if (playerLevel == 1) {
+            playerLevelView.setPosition(315,1440);
+        } else {
+            playerLevelView.setPosition(295,1440);
+        }
 
         draw();
 
