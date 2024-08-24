@@ -1,0 +1,50 @@
+package com.codemaster.game.managers;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.codemaster.game.GameResources;
+
+public class AudioManager {
+    public boolean isSoundOn;
+    public boolean isMusicOn;
+
+    public Music backgroundMusic;
+    public Sound clickSound1 = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_1));
+    public Sound clickSound2= Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_2));
+    public Sound clickSound3 = Gdx.audio.newSound(Gdx.files.internal(GameResources.CLICK_3));
+    public Sound uiSound;
+
+
+
+    // для случайного выбора звука клика
+
+
+
+    public AudioManager() {
+        backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal(GameResources.BACKGROUND_MUSIC_PATH));
+        uiSound = Gdx.audio.newSound(Gdx.files.internal(GameResources.UI_SOUND_PATH));
+
+
+        backgroundMusic.setVolume(0.2f);
+        backgroundMusic.setLooping(true);
+
+        updateSoundFlag();
+        updateMusicFlag();
+    }
+
+    public void updateSoundFlag() {
+        isSoundOn = MemoryManager.loadIsSoundOn();
+    }
+
+    public void updateMusicFlag() {
+        isMusicOn = MemoryManager.loadIsMusicOn();
+
+        if (isMusicOn) {
+            backgroundMusic.play();
+            backgroundMusic.setVolume(0.05f);
+        }
+
+        else backgroundMusic.stop();
+    }
+}

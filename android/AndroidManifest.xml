@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="UnusedAttribute">
         <activity
-            android:name="com.mygdx.game.AndroidLauncher"
+            android:name="com.codemaster.game.AndroidLauncher"
             android:screenOrientation="portrait"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"
             android:exported="true"
